@@ -59,13 +59,13 @@ export default function Contact() {
 
           {/* Соцсети */}
           <div className={style.social__icons}>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={style.social__item}>
+            <a href="https://www.instagram.com/luxecoat_premium_auto_studio?igsh=MW15M252NG9iYm83aQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className={style.social__item}>
               <img src={instagram} alt="instagram" />
             </a>
-            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className={style.social__item}>
+            <a href="https://www.tiktok.com/@matsafei_vlad" target="_blank" rel="noopener noreferrer" className={style.social__item}>
               <img src={tiktok} alt="tiktok" />
             </a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={style.social__item}>
+            <a href="https://www.facebook.com/share/1L1hX1ppcp/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className={style.social__item}>
               <img src={facebook} alt="facebook" />
             </a>
           </div>

@@ -25,7 +25,7 @@ export default function SocialSection() {
 
         <div className={styles.social__icons}>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/luxecoat_premium_auto_studio?igsh=MW15M252NG9iYm83aQ%3D%3D&utm_source=qr "
             target="_blank"
             rel="noopener noreferrer"
             className={styles.social__item}
@@ -33,7 +33,7 @@ export default function SocialSection() {
             <img src={instagram} alt="instagram" />
           </a>
           <a
-            href="https://tiktok.com"
+            href="https://www.tiktok.com/@matsafei_vlad"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.social__item}
@@ -41,7 +41,7 @@ export default function SocialSection() {
             <img src={tiktok} alt="tiktok" />
           </a>
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/share/1L1hX1ppcp/?mibextid=wwXIfr"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.social__item}
