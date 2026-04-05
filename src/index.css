@@ -1,0 +1,58 @@
+/* ===== RESET (чистая база) ===== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== ROOT ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Public Sans", sans-serif;
+  background: #0b0b0b;
+  color: #eaeaea;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* ===== MEDIA ===== */
+img, picture, video {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===== LINKS ===== */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== LISTS ===== */
+ul, ol {
+  list-style: none;
+}
+
+/* ===== BUTTONS ===== */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* ===== INPUT ===== */
+input, textarea {
+  outline: none;
+  border: none;
+}
+
+/* ===== CONTAINER (как у норм сайтов) ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 25px;
+}

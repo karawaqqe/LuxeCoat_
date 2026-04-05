@@ -1,72 +1,76 @@
+import React from "react";
 import style from "./contact.module.css";
+import instagram from "../../img/social/instagram.jpg";
+import tiktok from "../../img/social/tiktok.jpg";
+import facebook from "../../img/social/facebook.jpg";
 
-const Contact = () => {
+export default function Contact() {
   return (
     <section className={style.contact}>
-      <h2 className={style.contact__title}>Contact</h2>
+      <div className={style.container}>
+        <h2 className={style.title}>Skontaktuj się z nami</h2>
+        <p className={style.description}>
+          Zapraszamy do odwiedzenia naszego studia lub kontaktu telefonicznego i mailowego. Jesteśmy gotowi odpowiedzieć na Twoje pytania i umówić wizytę.
+        </p>
 
-      <div className={style.contact__list}>
-        <div className={style.contact__item}>
-          <div className={style.contact__icon}></div>
-          <div className={style.contact__content}>
-            <span className={style.contact__label}>Phone</span>
-            <span className={style.contact__text}>
-              +48 507 455 558
-            </span>
-          </div>
+      <div className={style.infoGrid}>
+  <div className={style.infoBlock}>
+    <h3 className={style.infoTitle}>Adres</h3>
+    <p className={style.infoText}>ul. Kowalska 12, 50-001 Wrocław, Polska</p>
+    <a href="https://maps.app.goo.gl/3bnXW45MvXDSaevj8?g_st=ic" target="_blank" rel="noopener noreferrer" className={style.mapLink}>Zobacz na mapie</a>
+  </div>
+
+  <div className={style.infoBlock}>
+    <h3 className={style.infoTitle}>Telefon</h3>
+    <p className={style.infoText}>
+      <a href="tel:+48609770890" className={style.phoneLink}>+48 609 770 890</a>
+    </p>
+  </div>
+
+  <div className={`${style.infoBlock} ${style.email}`}> {/* добавили класс email */}
+    <h3 className={style.infoTitle}>Email</h3>
+    <p className={style.infoText}>
+      <a href="mailto:kontakt@luxecoat.pl" className={style.emailLink}>kontakt@luxecoat.pl</a>
+    </p>
+  </div>
+</div>
+
+        <div className={style.mapWrapper}>
+          <iframe
+            title="LuxeCoat Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2449.4749679705436!2d17.048632515760068!3d51.10242367956152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fcf6e5dbfba17%3A0x21419a36b09a48c4!2sKowalska%2012%2C%2050-001%20Wroc%C5%82aw!5e0!3m2!1spl!2spl!4v1680674156653!5m2!1spl!2spl"
+            width="100%"
+            height="320"
+            style={{ border: 0, borderRadius: "10px" }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </div>
 
-        <div className={style.contact__item}>
-          <div className={style.contact__icon}></div>
-          <div className={style.contact__content}>
-            <span className={style.contact__label}>Address</span>
-            <span className={style.contact__text}>
-              Wrocławska 73 Jelcz-Laskowice 55-220
-            </span>
-          </div>
-        </div>
+        <div className={style.formSection}>
+          <h3 className={style.formTitle}>Wyślij do nas wiadomość</h3>
+          <form className={style.contactForm} onSubmit={(e) => e.preventDefault()}>
+            <input type="text" placeholder="Twoje imię" className={style.contactInput} required />
+            <input type="email" placeholder="Twój email" className={style.contactInput} required />
+            <textarea placeholder="Twoja wiadomość" className={style.contactTextarea} required />
+            <button type="submit" className={style.submitBtn}>Wyślij</button>
+          </form>
 
-        <div className={`${style.contact__item} ${style["contact__item--schedule"]}`}>
-          <div className={style.contact__icon}></div>
-
-          <div className={style.contact__content}>
-            <span className={style.contact__label}>Hours</span>
-
-            <div className={style.contact__schedule}>
-              <div className={style.contact__row}>
-                <span>Sunday</span>
-                <span>Closed</span>
-              </div>
-              <div className={style.contact__row}>
-                <span>Monday</span>
-                <span>8:00 AM - 4:00 PM</span>
-              </div>
-              <div className={style.contact__row}>
-                <span>Tuesday</span>
-                <span>8:00 AM - 4:00 PM</span>
-              </div>
-              <div className={style.contact__row}>
-                <span>Wednesday</span>
-                <span>8:00 AM - 4:00 PM</span>
-              </div>
-              <div className={style.contact__row}>
-                <span>Thursday</span>
-                <span>8:00 AM - 4:00 PM</span>
-              </div>
-              <div className={style.contact__row}>
-                <span>Friday</span>
-                <span>8:00 AM - 4:00 PM</span>
-              </div>
-              <div className={style.contact__row}>
-                <span>Saturday</span>
-                <span>Closed</span>
-              </div>
-            </div>
+          {/* Соцсети */}
+          <div className={style.social__icons}>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className={style.social__item}>
+              <img src={instagram} alt="instagram" />
+            </a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className={style.social__item}>
+              <img src={tiktok} alt="tiktok" />
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className={style.social__item}>
+              <img src={facebook} alt="facebook" />
+            </a>
           </div>
         </div>
       </div>
     </section>
   );
-};
-
-export default Contact;
+}

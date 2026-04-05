@@ -1,0 +1,158 @@
+/* Появление секции и карточек */
+
+.gall {
+  padding: 120px 20px 60px;
+  background-color: #0d0d0d;
+  color: #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0; /* стартовое скрытие */
+  transform: translateY(30px); /* слегка снизу */
+  animation: fadeSlideIn 1s forwards; /* анимация появления */
+}
+
+.gall__title {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  font-family: "Public Sans", sans-serif;
+  text-align: center;
+
+  background: linear-gradient(
+    90deg,
+    #6b6b6b 0%,
+    #ffd12b 40%,
+    #d4af37 60%,
+    #cfcfcf 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gall__cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 500px));
+  gap: 40px;
+  justify-content: center;
+}
+
+.gall__card {
+  background-color: #1a1a1a;
+  padding: 25px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s, box-shadow 0.3s, opacity 0.6s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateY(-10px);
+  opacity: 0; /* стартовое скрытие */
+  animation: cardFadeIn 0.8s forwards;
+}
+
+.gall__card:nth-child(1) { animation-delay: 0.1s; }
+.gall__card:nth-child(2) { animation-delay: 0.2s; }
+.gall__card:nth-child(3) { animation-delay: 0.3s; }
+.gall__card:nth-child(4) { animation-delay: 0.4s; }
+/* и так далее для всех карточек */
+.gall__card:nth-child(15) { animation-delay: 1.5s; }
+
+@keyframes cardFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gall__card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15);
+}
+
+.gall__stars {
+  color: #ffd12b;
+  margin-bottom: 15px;
+  font-size: 22px;
+  text-align: center;
+}
+
+.gall__text {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #ccc;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.gall__author {
+  font-weight: 700;
+  color: #f5f5f5;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.gall__button {
+  padding: 14px 34px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-family: "Public Sans", sans-serif;
+  color: #d4af37;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin: 50px auto 0 auto;
+}
+
+.gall__button:hover {
+  color: #000;
+  background: #d4af37;
+  border-color: #d4af37;
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.3);
+}
+
+/* Адаптив */
+@media (max-width: 1200px) {
+  .gall__cards {
+    grid-template-columns: repeat(2, minmax(0, 500px));
+  }
+}
+
+@media (max-width: 768px) {
+  .gall__cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .gall {
+    padding: 100px 10px 60px;
+  }
+
+  .gall__title {
+    font-size: 32px;
+  }
+
+  .gall__text {
+    font-size: 14px;
+  }
+
+  .gall__button {
+    width: 100%;
+  }
+}

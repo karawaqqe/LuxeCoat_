@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import style from "./header.module.css";
 import logo from "../../img/logo.png";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className={style.header}>
+    <header className={`${style.header} ${scrolled ? style.scrolled : ""}`}>
       <div className={style.header__inner}>
         <div className={style.header__left}>
           <img className={style.header__logo} src={logo} alt="Logo" />
@@ -15,31 +25,31 @@ const Header = () => {
         <nav className={`${style.header__nav} ${menuOpen ? style.active : ""}`}>
           <ul className={style.header__list}>
             <li>
-              <a href="#">Home</a>
+              <Link to="/">Strona główna</Link>
             </li>
             <li>
-              <a href="#">Reviews</a>
+              <Link to="/review">Opinie</Link>
+            </li>
+          
+            <li>
+              <Link to="/gallery">Galeria</Link>
             </li>
             <li>
-              <a href="#">Blog</a>
-            </li>
-            <li>
-              <a href="#">Gallery</a>
-            </li>
-            <li>
-              <a href="#">Contact</a>
+              <Link to="/contact">Kontakt</Link>
             </li>
           </ul>
         </nav>
 
         <div className={style.header__right}>
           <span className={style.header__phone}>+48 609 770 890</span>
-
-          <div className={style.burger} onClick={() => setMenuOpen(!menuOpen)}>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+        </div>
+        <div
+          className={`${style.burger} ${menuOpen ? style.burgerActive : ""}`}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </div>
     </header>

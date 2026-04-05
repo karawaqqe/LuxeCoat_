@@ -1,0 +1,146 @@
+
+.social {
+  padding: 40px 20px 80px;
+    background: #0f0f0f;
+
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.social.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+.social__title {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+   font-family: "Public Sans", sans-serif;
+  background: linear-gradient(
+    90deg,
+    #6b6b6b 0%,
+    #ffd12b 40%,
+    #777777 60%,
+    #cfcfcf 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.social__text {
+  font-size: 15px;
+  color: #888;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+   font-family: "Public Sans", sans-serif;
+}
+
+.social__icons {
+  display: flex;
+  justify-content: center;
+  gap: 40px; 
+  margin-bottom: 45px;
+}
+
+.social__item {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.3s ease;
+}
+
+.social__item img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  transition: 0.3s;
+}
+
+.social__item:hover {
+  border-color: rgba(212,175,55,0.5);
+  transform: translateY(-3px) scale(1.05);
+}
+
+.social__item:hover img {
+  transform: scale(1.15);
+}
+
+.social__btn {
+    padding: 14px 34px;
+  font-size: 12px;
+  letter-spacing: 2px;
+   font-family: "Public Sans", sans-serif;
+   color: #d4af37;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+ border-radius: 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.social__btn:hover {
+  color: #000;
+  background: #d4af37;
+  border-color: #d4af37;
+  box-shadow: 0 6px 18px rgba(212,175,55,0.3);
+}
+
+@media (max-width: 768px) {
+  .social {
+    padding: 100px 20px 60px;
+  }
+
+  .social__title {
+    font-size: 28px;
+  }
+
+  .social__text {
+    font-size: 14px;
+  }
+
+  .social__icons {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 420px) {
+  .social__icons {
+    gap: 20px;
+  }
+
+  .social__item {
+    width: 50px;
+    height: 50px;
+  }
+
+  .social__item img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .social__btn {
+    width: 100%;
+  }
+}
