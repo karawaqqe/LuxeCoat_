@@ -22,7 +22,7 @@ const Footer = () => {
         <div className={style.footer__links}>
           <Link to="/">Strona główna</Link>
           <Link to="/gallery">Galeria</Link>
-          <Link to="/blog">Blog</Link>
+          <Link to="/review">Blog</Link>
           <Link to="/contact">Kontakt</Link>
         </div>
 

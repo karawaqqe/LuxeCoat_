@@ -156,3 +156,33 @@
     width: 100%;
   }
 }
+
+
+.gall__actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.gall__buttonWrite {
+  padding: 14px 34px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-family: "Public Sans", sans-serif;
+  color: #d4af37;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin: 50px auto 0 auto;
+}
+
+.gall__buttonWrite:hover {
+  color: #000;
+  background: #d4af37;
+  border-color: #d4af37;
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.3);
+}
+
