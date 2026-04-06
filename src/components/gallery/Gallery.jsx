@@ -22,7 +22,7 @@ const Gallery = () => {
   const startY = useRef(0);
   const endY = useRef(0);
 
-  // autoplay
+
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
@@ -31,7 +31,6 @@ const Gallery = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // scroll animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -45,7 +44,6 @@ const Gallery = () => {
 
   const getIndex = (i) => (i + images.length) % images.length;
 
-  // swipe
   const handleTouchStart = (e) => {
     startY.current = e.touches[0].clientY;
   };

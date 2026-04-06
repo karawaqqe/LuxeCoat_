@@ -63,7 +63,6 @@ const Modal = ({ onClose }) => {
 
     if (!validate()) return;
 
-    // временно без EmailJS
     if ("YOUR_SERVICE_ID" === "YOUR_SERVICE_ID") {
       console.log("FAKE SEND", form, rating);
       setSuccess(true);

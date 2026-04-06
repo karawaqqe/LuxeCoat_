@@ -19,7 +19,7 @@ const Header = () => {
     <header className={`${style.header} ${scrolled ? style.scrolled : ""}`}>
       <div className={style.header__inner}>
         <div className={style.header__left}>
-          <img className={style.header__logo} src={logo} alt="Logo" />
+          <img className={style.header__logo} src={logo} alt="Logo" onContextMenu={(e) => e.preventDefault()} / >
         </div>
 
         <nav className={`${style.header__nav} ${menuOpen ? style.active : ""}`}>

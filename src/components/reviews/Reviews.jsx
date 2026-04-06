@@ -24,7 +24,6 @@ const Reviews = () => {
     setCurrentPage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
   };
 
-  // 👉 СВАЙП
   const handleTouchStart = (e) => {
     startX.current = e.touches[0].clientX;
   };

@@ -27,12 +27,20 @@
 .header__logo {
   height: 85px;
   width: 85px;
+    user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .header__nav {
   display: flex;
   flex: 1;
   justify-content: center; 
+    user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .header__list {

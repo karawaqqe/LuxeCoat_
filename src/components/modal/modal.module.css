@@ -1,4 +1,4 @@
-/* OVERLAY */
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -82,7 +82,6 @@
   }
 }
 
-/* CLOSE */
 .close {
   position: absolute;
   top: 15px;
@@ -123,7 +122,6 @@
   color: transparent;
 }
 
-/* STARS */
 .stars {
   display: flex;
   justify-content: center;
@@ -131,19 +129,33 @@
   font-size: 26px;
   margin-bottom: 15px;
   cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
 }
 
 .star {
   color: #555;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
   transition: 0.2s;
 }
 
 .activeStar {
   color: #ffd12b;
   transform: scale(1.2);
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+ 
 }
 
-/* ERROR TEXT */
 .errorText {
   text-align: center;
   color: #ff4d4f;
@@ -151,14 +163,12 @@
   margin-bottom: 10px;
 }
 
-/* FORM */
 .form {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-/* INPUTS */
 .input,
 .textarea {
   padding: 14px;
@@ -180,20 +190,17 @@
   border-color: #ff4d4f !important;
 }
 
-/* TEXTAREA */
 .textarea {
   min-height: 120px;
   resize: none;
 }
 
-/* SUCCESS */
 .success {
   text-align: center;
   color: #4caf50;
   font-size: 14px;
 }
 
-/* BUTTON */
 .submit {
   width: 100%;
   max-width: 260px;
@@ -215,9 +222,7 @@
   box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
 }
 
-/* ========================= */
-/* 📱 1024px (планшеты) */
-/* ========================= */
+
 @media (max-width: 1200px) {
   .modal {
     max-width: 600px;
@@ -233,9 +238,6 @@
   }
 }
 
-/* ========================= */
-/* 📱 768px (планшеты/телефоны) */
-/* ========================= */
 @media (max-width: 768px) {
   .modal {
     max-width: 90%;
@@ -250,6 +252,7 @@
   .stars {
     font-size: 22px;
     gap: 8px;
+    
   }
 
   .input,
@@ -281,6 +284,10 @@
 
   .stars {
     font-size: 20px;
+        user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   }
 
   .close {
@@ -314,5 +321,9 @@
   .stars {
     font-size: 18px;
     gap: 6px;
+        user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   }
 }

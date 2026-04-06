@@ -1,4 +1,3 @@
-/* ---------------- REVIEWS ---------------- */
 .reviews {
   padding: 40px 20px;
   text-align: center;
@@ -197,7 +196,6 @@
   }
 }
 
-/* ---------------- RESPONSIVE ---------------- */
 @media (max-width: 1200px) {
   .reviews__card {
     width: 280px;
@@ -234,7 +232,6 @@
   }
 }
 
-/* ---------------- GRADIENT TITLES ---------------- */
 .reviews__title,
 .social__title {
   display: inline-block;

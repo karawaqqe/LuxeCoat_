@@ -5,7 +5,6 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* Убираем BrowserRouter, так как роутер есть в App */}
     <App />
   </React.StrictMode>
 );

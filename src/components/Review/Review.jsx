@@ -6,14 +6,12 @@ import Modal from "../../components/modal/Modal";
 const ReviewsDetailed = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // сколько отзывов показываем
   const [visibleCount, setVisibleCount] = useState(0);
-  // сколько добавлять при клике
   const [increment, setIncrement] = useState(6);
-  // сколько показываем изначально
+
   const [initialCount, setInitialCount] = useState(6);
 
-  // при монтировании определяем устройство
+
   useEffect(() => {
     const width = window.innerWidth;
     if (width < 768) {
@@ -29,10 +27,8 @@ const ReviewsDetailed = () => {
 
   const handleShowMore = () => {
     if (visibleCount >= reviews.length) {
-      // если уже все видим, скрываем до начального количества
       setVisibleCount(initialCount);
     } else {
-      // добавляем новые
       setVisibleCount((prev) => Math.min(prev + increment, reviews.length));
     }
   };
