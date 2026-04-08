@@ -1,0 +1,197 @@
+.gallery {
+  padding: 140px 20px 100px; /* 🔥 фикс хедера */
+  background: #0b0b0b;
+  text-align: center;
+  position: relative;
+  background-image: url("../../img/gall/backgall.jpeg");
+  filter: blur(15px) scale(1.1);
+  background-size: cover;
+  background-position: center;
+}
+
+.gallery::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.title {
+  font-size: 48px;
+  margin-bottom: 70px;
+  font-family: "Public Sans", sans-serif;
+  letter-spacing: 4px;
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    #f9ec3d 0%,
+    #f2cd27cb 40%,
+    #8c8a85 60%,
+    #656565 100%
+  );
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title::before,
+.title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d4af37);
+}
+
+.title::before {
+  left: calc(50% - 220px);
+}
+
+.title::after {
+  right: calc(50% - 220px);
+  background: linear-gradient(90deg, #d4af37, transparent);
+}
+.grid {
+  column-count: 4;
+  column-gap: 30px;
+
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.card {
+  break-inside: avoid;
+  margin-bottom: 30px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  will-change: transform, opacity;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  filter: blur(12px);
+  transform: scale(1.02);
+  transition: 0.5s;
+}
+
+.loaded {
+  filter: blur(0);
+  transform: scale(1);
+}
+
+.card:hover img {
+  transform: scale(1.08);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(212, 175, 55, 0.25),
+    transparent
+  );
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.moreBtn {
+  padding: 14px 74px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-family: "Public Sans", sans-serif;
+
+  color: #d4af37;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 30px;
+
+  cursor: pointer;
+  margin: 50px auto 0 auto;
+  display: block;
+
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.moreBtn:hover {
+  color: #000;
+  background: #d4af37;
+  border-color: #d4af37;
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.3);
+  transform: translateY(-2px);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(20px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 9999;
+}
+
+.modalImg {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 14px;
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
+  cursor: grab;
+}
+
+@media (max-width: 1200px) {
+  .grid {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    column-count: 2;
+    column-gap: 20px;
+  }
+
+  .title {
+    font-size: 30px;
+  }
+  .title {
+    font-size: 28px;
+    letter-spacing: 2px;
+  }
+
+  .title::before,
+  .title::after {
+    display: none;
+  }
+
+  .gallery {
+    padding-top: 120px;
+  }
+}
+
+@media (max-width: 420px) {
+  .grid {
+    column-count: 1;
+  }
+
+  .gallery {
+    padding: 110px 15px 70px;
+  }
+}
