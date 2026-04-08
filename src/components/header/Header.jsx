@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import style from "./header.module.css";
 import logo from "../../img/logo.png";
@@ -6,6 +6,9 @@ import logo from "../../img/logo.png";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const navRef = useRef(null);
+  const burgerRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,35 +18,57 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // 👇 ВОТ ЭТО МАГИЯ
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (
+        menuOpen &&
+        navRef.current &&
+        !navRef.current.contains(e.target) &&
+        burgerRef.current &&
+        !burgerRef.current.contains(e.target)
+      ) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuOpen]);
+
   return (
     <header className={`${style.header} ${scrolled ? style.scrolled : ""}`}>
       <div className={style.header__inner}>
         <div className={style.header__left}>
-          <img className={style.header__logo} src={logo} alt="Logo" onContextMenu={(e) => e.preventDefault()} / >
+          <img
+            className={style.header__logo}
+            src={logo}
+            alt="Logo"
+            onContextMenu={(e) => e.preventDefault()}
+          />
         </div>
 
-        <nav className={`${style.header__nav} ${menuOpen ? style.active : ""}`}>
+        <nav
+          ref={navRef}
+          className={`${style.header__nav} ${menuOpen ? style.active : ""}`}
+        >
           <ul className={style.header__list}>
-            <li>
-              <Link to="/">Strona główna</Link>
-            </li>
-            <li>
-              <Link to="/review">Opinie</Link>
-            </li>
-          
-            <li>
-              <Link to="/gallery">Galeria</Link>
-            </li>
-            <li>
-              <Link to="/contact">Kontakt</Link>
-            </li>
+            <li><Link to="/" onClick={() => setMenuOpen(false)}>Strona główna</Link></li>
+            <li><Link to="/review" onClick={() => setMenuOpen(false)}>Opinie</Link></li>
+            <li><Link to="/gallery" onClick={() => setMenuOpen(false)}>Galeria</Link></li>
+            <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Kontakt</Link></li>
           </ul>
         </nav>
 
         <div className={style.header__right}>
           <span className={style.header__phone}>+48 609 770 890</span>
         </div>
+
         <div
+          ref={burgerRef}
           className={`${style.burger} ${menuOpen ? style.burgerActive : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
         >
