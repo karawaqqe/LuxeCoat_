@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import style from "./gall.module.css";
-
-// 👉 импорты (оставь свои)
 import blue from "../../img/gall/blue.jpg";
 import j from "../../img/gall/j.jpg";
 import jj from "../../img/gall/jj.jpg";
@@ -14,7 +12,6 @@ import kkkkk from "../../img/gall/kkkkk.jpg";
 import kkkkkk from "../../img/gall/kkkkkk.jpg";
 import kkkkkkk from "../../img/gall/kkkkkkk.jpg";
 import kkkkkkkk from "../../img/gall/kkkkkkkk.jpg";
-
 import kol from "../../img/gall/kol.jpg";
 import o from "../../img/gall/o.jpg";
 import oo from "../../img/gall/oo.jpg";
@@ -22,10 +19,8 @@ import ooo from "../../img/gall/ooo.jpg";
 import oooo from "../../img/gall/oooo.jpg";
 import ooooo from "../../img/gall/ooooo.jpg";
 import oooooo from "../../img/gall/oooooo.jpg";
-
 import r from "../../img/gall/r.jpg";
 import rr from "../../img/gall/rr.jpg";
-
 import s from "../../img/gall/s.jpg";
 import ss from "../../img/gall/ss.jpg";
 import sss from "../../img/gall/sss.jpg";
