@@ -118,6 +118,7 @@
   transition: all 0.3s ease;
   cursor: pointer;
   margin: 50px auto 0 auto;
+   -webkit-tap-highlight-color: transparent;
 }
 
 .gall__button:hover {
@@ -179,6 +180,7 @@
   transition: all 0.3s ease;
   cursor: pointer;
   margin: 50px auto 0 auto;
+   -webkit-tap-highlight-color: transparent;
 }
 
 .gall__buttonWrite:hover {

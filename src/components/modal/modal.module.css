@@ -66,6 +66,7 @@
 
 .modalClosing {
   animation: modalFadeOut 0.4s forwards;
+   -webkit-tap-highlight-color: transparent;
 }
 
 @keyframes modalFade {
@@ -215,6 +216,7 @@
   transition: all 0.3s ease;
   cursor: pointer;
   margin: 20px auto 0 auto;
+   -webkit-tap-highlight-color: transparent;
 }
 
 .submit:hover {

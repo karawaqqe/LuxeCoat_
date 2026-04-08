@@ -162,6 +162,7 @@
   cursor: pointer;
   overflow: hidden;
   transition: 0.3s;
+  -webkit-tap-highlight-color: transparent;
   margin-top: 15px;
 }
 
