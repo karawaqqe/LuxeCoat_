@@ -119,6 +119,7 @@
   height: 14px;
   position: relative;
   cursor: pointer;
+   -webkit-tap-highlight-color: transparent;
 }
 
 .burger span {

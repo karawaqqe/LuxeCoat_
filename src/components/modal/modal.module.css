@@ -235,6 +235,7 @@
 
   .stars {
     font-size: 24px;
+    -webkit-tap-highlight-color: transparent;
   }
 }
 

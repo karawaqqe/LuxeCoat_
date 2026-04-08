@@ -53,10 +53,10 @@
 
 .reviews__card {
   background: #1a1a1a;
-  padding: 35px 30px;
+  padding: 15px 10px;
   border-radius: 20px;
   width: 320px;
-  min-height: 260px;
+  min-height: 280px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -134,7 +134,7 @@
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin: 30px 0;
+  margin: 40px 0;
 }
 
 .reviews__dot {
@@ -162,6 +162,7 @@
   cursor: pointer;
   overflow: hidden;
   transition: 0.3s;
+  margin-top: 15px;
 }
 
 .reviews__button::before {
@@ -218,7 +219,7 @@
 
   .reviews__card {
     width: 90%;
-    min-height: 260px;
+    height: 300px;
   }
 }
 
@@ -228,7 +229,7 @@
   }
 
   .reviews__card {
-    width: 100%;
+    width: 90%;
   }
 }
 
