@@ -2,9 +2,7 @@
   position: relative;
   overflow: hidden;
   padding: 86px 20px 78px;
-  background:
-    linear-gradient(180deg, rgba(212, 175, 55, 0.04) 0%, transparent 20%),
-    #0d0d0f;
+  background-color: #050505;
   opacity: 0;
   transform: translateY(56px) scale(0.985);
   transition:
