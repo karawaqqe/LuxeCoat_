@@ -22,11 +22,10 @@ const Gallery = () => {
   const startY = useRef(0);
   const endY = useRef(0);
 
-
   useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
-    }, 3000);
+    }, 3800);
 
     return () => clearInterval(timer);
   }, []);
@@ -36,8 +35,9 @@ const Gallery = () => {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.2 },
+      { threshold: 0.15 }
     );
+
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
@@ -47,14 +47,17 @@ const Gallery = () => {
   const handleTouchStart = (e) => {
     startY.current = e.touches[0].clientY;
   };
+
   const handleTouchMove = (e) => {
     endY.current = e.touches[0].clientY;
   };
+
   const handleTouchEnd = () => {
     const diff = startY.current - endY.current;
     if (diff > 50) setIndex((prev) => (prev + 1) % images.length);
-    else if (diff < -50)
+    else if (diff < -50) {
       setIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    }
   };
 
   return (
@@ -62,8 +65,17 @@ const Gallery = () => {
       ref={sectionRef}
       className={`${style.gallery} ${isVisible ? style.visible : ""}`}
     >
+      <div className={style.gallery__line}></div>
       <div className={style.gallery__container}>
-        <h2 className={style.gallery__title}>Nasza Praca</h2>
+        <div className={style.gallery__head}>
+          <span className={style.gallery__kicker}>Showcase</span>
+          <h2 className={style.gallery__title}>Nasza praca</h2>
+          <p className={style.gallery__intro}>
+            Zachowalem klimat Twojej sekcji, ale podnioslem ja wizualnie pod
+            nowy styl strony: ciemniej, bardziej premium i z lagodniejszym
+            pojawianiem.
+          </p>
+        </div>
 
         <div
           className={style.gallery__slider}
@@ -77,10 +89,8 @@ const Gallery = () => {
             if (i === index) className += ` ${style.active}`;
             else if (i === getIndex(index - 1)) className += ` ${style.prev}`;
             else if (i === getIndex(index + 1)) className += ` ${style.next}`;
-            else if (i === getIndex(index - 2))
-              className += ` ${style.farPrev}`;
-            else if (i === getIndex(index + 2))
-              className += ` ${style.farNext}`;
+            else if (i === getIndex(index - 2)) className += ` ${style.farPrev}`;
+            else if (i === getIndex(index + 2)) className += ` ${style.farNext}`;
             else className += ` ${style.hidden}`;
 
             return (
@@ -95,9 +105,22 @@ const Gallery = () => {
           })}
         </div>
 
-        <Link to="/gallery" className={style.gallery__button}>
-          Pokaż więcej
-        </Link>
+        <div className={style.gallery__footer}>
+          <div className={style.gallery__progress}>
+            {images.map((_, i) => (
+              <span
+                key={i}
+                className={`${style.gallery__dot} ${
+                  i === index ? style.gallery__dotActive : ""
+                }`}
+              />
+            ))}
+          </div>
+
+          <Link to="/gallery" className={style.gallery__button}>
+            Pokaz wiecej
+          </Link>
+        </div>
       </div>
 
       {fullscreen && (
@@ -105,7 +128,7 @@ const Gallery = () => {
           className={style.gallery__fullscreen}
           onClick={() => setFullscreen(null)}
         >
-          <span className={style.gallery__close}>×</span>
+          <span className={style.gallery__close}>+</span>
           <img src={fullscreen} alt="fullscreen" />
         </div>
       )}

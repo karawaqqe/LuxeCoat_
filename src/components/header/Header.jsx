@@ -14,11 +14,11 @@ const Header = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 30);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 👇 ВОТ ЭТО МАГИЯ
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
@@ -33,10 +33,7 @@ const Header = () => {
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [menuOpen]);
 
   return (
@@ -56,10 +53,31 @@ const Header = () => {
           className={`${style.header__nav} ${menuOpen ? style.active : ""}`}
         >
           <ul className={style.header__list}>
-            <li><Link to="/" onClick={() => setMenuOpen(false)}>Strona główna</Link></li>
-            <li><Link to="/review" onClick={() => setMenuOpen(false)}>Opinie</Link></li>
-            <li><Link to="/gallery" onClick={() => setMenuOpen(false)}>Galeria</Link></li>
-            <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Kontakt</Link></li>
+            <li>
+              <Link to="/" onClick={() => setMenuOpen(false)}>
+                Strona glowna
+              </Link>
+            </li>
+            <li>
+              <Link to="/review" onClick={() => setMenuOpen(false)}>
+                Opinie
+              </Link>
+            </li>
+            <li>
+              <Link to="/gallery" onClick={() => setMenuOpen(false)}>
+                Galeria
+              </Link>
+            </li>
+            <li>
+              <Link to="/contact" onClick={() => setMenuOpen(false)}>
+                Kontakt
+              </Link>
+            </li>
+            <li>
+              <Link to="/uslugi" onClick={() => setMenuOpen(false)}>
+                Uslugi
+              </Link>
+            </li>
           </ul>
         </nav>
 

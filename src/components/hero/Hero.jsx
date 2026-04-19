@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import style from "./hero.module.css";
 
@@ -6,57 +7,72 @@ const Hero = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkScreen = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
+    const checkScreen = () => setIsMobile(window.innerWidth <= 768);
     checkScreen();
     window.addEventListener("resize", checkScreen);
-
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
-  const fullText = `O nas LuxeCoat to studio detailingu premium we Wrocławiu.
-Specjalizujemy się w korekcie lakieru, powłokach ceramicznych oraz
-aplikacji folii ochronnych PPF, zapewniając najwyższy poziom ochrony
-i estetyki pojazdu.
-Posiadamy ponad 10 lat doświadczenia w pracy z lakierem — od
-precyzyjnej polerki, przez aplikację powłok ceramicznych, aż po
-profesjonalne oklejanie folią PPF.
-Nasza wiedza i praktyka pozwalają osiągać perfekcyjne rezultaty nawet
-przy najbardziej wymagających projektach.
-Pracujemy wyłącznie na sprawdzonych materiałach i nowoczesnych
-technologiach, dbając o każdy detal.
-Każdy samochód traktujemy indywidualnie, ponieważ wiemy, że liczy się
-nie tylko efekt wizualny, ale również trwałość i ochrona na lata.
-Naszym priorytetem jest najwyższa jakość usług i pełne zadowolenie
-klienta.
-Dążymy do perfekcji w każdym detalu, aby Twój samochód wyglądał
-idealnie i wyróżniał się na drodze.`;
-
-  const shortText = fullText.slice(0, 180) + "...";
+  const fullText = `LuxeCoat to studio detailingu premium we Wroclawiu. Specjalizujemy sie w korekcie lakieru, powlokach ceramicznych, detailingu oraz aplikacji folii ochronnych PPF. Pracujemy z mysla o efekcie koncowym, trwalosci i estetyce, ktora od razu robi wrazenie.`;
+  const shortText = `${fullText.slice(0, 170)}...`;
 
   return (
     <section className={style.hero}>
+      <div className={style.hero__grid}></div>
+
       <div className={style.hero__container}>
-        <h1 className={style.hero__title}>LuxeCoat</h1>
+        <div className={style.hero__left}>
+          <span className={style.hero__kicker}>Premium Auto Studio</span>
+          <h1 className={style.hero__title}>LuxeCoat</h1>
 
-        <p className={style.hero__text}>
-          {isMobile ? (expanded ? fullText : shortText) : fullText}
-        </p>
+          <p className={style.hero__text}>
+            {isMobile ? (expanded ? fullText : shortText) : fullText}
+          </p>
 
-        {isMobile && (
-          <span
-            className={style.readMore}
-            onClick={() => setExpanded(!expanded)}
-          >
-            {expanded ? "Zwiń" : "Czytaj dalej..."}
-          </span>
-        )}
+          {isMobile && (
+            <button
+              type="button"
+              className={style.readMore}
+              onClick={() => setExpanded(!expanded)}
+            >
+              {expanded ? "Zwin" : "Czytaj dalej"}
+            </button>
+          )}
 
-        <button className={style.hero__button}>
-          Zadzwoń do nas
-        </button>
+          <div className={style.hero__actions}>
+            <Link to="/uslugi" className={style.hero__buttonPrimary}>
+              Zobacz uslugi
+            </Link>
+            <a href="tel:+48609770890" className={style.hero__buttonGhost}>
+              +48 609 770 890
+            </a>
+          </div>
+        </div>
+
+        <div className={style.hero__right}>
+          <div className={style.hero__card}>
+            <span className={style.hero__cardLabel}>Signature Finish</span>
+            <p>
+              Ostre formy, ciemny klimat i premium detailing. Tak ma wygladac
+              pierwsze wrazenie.
+            </p>
+          </div>
+
+          <div className={style.hero__stats}>
+            <div>
+              <strong>PPF</strong>
+              <span>Ochrona lakieru</span>
+            </div>
+            <div>
+              <strong>Ceramika</strong>
+              <span>Polysk i ochrona</span>
+            </div>
+            <div>
+              <strong>Detailing</strong>
+              <span>Efekt premium</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

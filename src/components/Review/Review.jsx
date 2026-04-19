@@ -5,12 +5,9 @@ import Modal from "../../components/modal/Modal";
 
 const ReviewsDetailed = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   const [visibleCount, setVisibleCount] = useState(0);
   const [increment, setIncrement] = useState(6);
-
   const [initialCount, setInitialCount] = useState(6);
-
 
   useEffect(() => {
     const width = window.innerWidth;
@@ -37,15 +34,32 @@ const ReviewsDetailed = () => {
 
   return (
     <section className={style.gall}>
-      <h2 className={style.gall__title}>
-        Recenzje <span>klientów</span>
-      </h2>
+      <div className={style.gall__line}></div>
+
+      <div className={style.gall__hero}>
+        <span className={style.gall__kicker}>All Reviews</span>
+        <h2 className={style.gall__title}>Opinie klientow</h2>
+        <p className={style.gall__intro}>
+          Pelna sciana recenzji w bardziej wyrazistej, gallery-like kompozycji.
+          Duze karty, lekkie przesuniecia i mocniejszy premium feeling.
+        </p>
+      </div>
 
       <div className={style.gall__cards}>
-        {reviews.slice(0, visibleCount).map((review) => (
-          <div key={review.id} className={style.gall__card}>
-            <div className={style.gall__stars}>
-              {"★".repeat(review.rating)}
+        {reviews.slice(0, visibleCount).map((review, index) => (
+          <div
+            key={review.id}
+            className={`${style.gall__card} ${
+              index % 3 === 0
+                ? style.variantA
+                : index % 3 === 1
+                  ? style.variantB
+                  : style.variantC
+            }`}
+          >
+            <div className={style.gall__cardTop}>
+              <div className={style.gall__stars}>{"*".repeat(review.rating)}</div>
+              <span className={style.gall__tag}>LuxeCoat</span>
             </div>
             <p className={style.gall__text}>{review.text}</p>
             <p className={style.gall__author}>{review.name}</p>
@@ -55,14 +69,14 @@ const ReviewsDetailed = () => {
 
       <div className={style.gall__actions}>
         <button className={style.gall__button} onClick={handleShowMore}>
-          {allVisible ? "Ukryj" : "Pokaż więcej"}
+          {allVisible ? "Ukryj" : "Pokaz wiecej"}
         </button>
 
         <button
           className={style.gall__buttonWrite}
           onClick={() => setIsOpen(true)}
         >
-          Napisz opinię
+          Napisz opinie
         </button>
       </div>
 

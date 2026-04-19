@@ -1,0 +1,181 @@
+.page {
+  position: relative;
+  overflow: hidden;
+  padding: 120px 20px 72px;
+  background:
+    linear-gradient(180deg, rgba(212, 175, 55, 0.04) 0%, transparent 18%),
+    #0d0d0f;
+  color: #f4f4f4;
+}
+
+.gridBg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4), transparent 85%);
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 0.98fr 1.02fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.heroCopy,
+.heroImage,
+.checklistCard,
+.galleryColumn {
+  background: rgba(10, 10, 10, 0.82);
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.34);
+}
+
+.heroCopy {
+  padding: 34px;
+}
+
+.kicker {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #f0d47a;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.8rem;
+}
+
+.title {
+  margin-bottom: 14px;
+  font-size: 3rem;
+  font-family: "Public Sans", sans-serif;
+  background: linear-gradient(90deg, #9b9b9b 0%, #ffd12b 44%, #ededed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.description {
+  max-width: 560px;
+  line-height: 1.78;
+  color: #c7c7c7;
+}
+
+.pillars {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.pillars span {
+  padding: 9px 14px;
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  color: #efd98f;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+}
+
+.heroImage {
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.heroImage img,
+.galleryColumn img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.contentRow {
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+  gap: 24px;
+}
+
+.checklistCard {
+  padding: 28px;
+}
+
+.checklistCard h2 {
+  margin-bottom: 16px;
+  color: #f0d47a;
+  font-family: "Public Sans", sans-serif;
+}
+
+.checklistCard ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #c4c4c4;
+  line-height: 1.9;
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 14px 24px;
+  text-decoration: none;
+  font-family: "Public Sans", sans-serif;
+  font-weight: 700;
+}
+
+.primaryButton {
+  background: #d4af37;
+  color: #060606;
+}
+
+.secondaryButton {
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  color: #f0d47a;
+}
+
+.galleryColumn {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 12px;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .contentRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding: 100px 14px 44px;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .heroCopy,
+  .checklistCard {
+    padding: 22px;
+  }
+
+  .galleryColumn {
+    grid-template-columns: 1fr;
+  }
+}

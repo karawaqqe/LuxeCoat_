@@ -35,20 +35,27 @@ const Reviews = () => {
   const handleTouchEnd = () => {
     const diff = startX.current - endX.current;
 
-    if (diff > 50) {
-      nextSlide();
-    } else if (diff < -50) {
-      prevSlide();
-    }
+    if (diff > 50) nextSlide();
+    if (diff < -50) prevSlide();
   };
 
   return (
     <section className={style.reviews}>
-      <h2 className={style.reviews__title}>
-       Recenzje <span>klientów</span>
-      </h2>
+      <div className={style.reviews__line}></div>
 
-      <div className={style.reviews__slider}>
+      <div className={style.reviews__head}>
+        <div>
+          <span className={style.reviews__kicker}>Client Voice</span>
+          <h2 className={style.reviews__title}>Recenzje klientow</h2>
+        </div>
+
+        <p className={style.reviews__intro}>
+          Opinie, ktore buduja zaufanie. Zebrane w bardziej editorial formie,
+          zeby sekcja wygladala premium, a nie jak zwykly slider.
+        </p>
+      </div>
+
+      <div className={style.reviews__shell}>
         <button className={style.reviews__arrowLeft} onClick={prevSlide}>
           <img src={arrowLeft} alt="prev" />
         </button>
@@ -69,24 +76,31 @@ const Reviews = () => {
 
               return (
                 <div key={pageIndex} className={style.reviews__slide}>
-                  {pageItems.map((review) => {
+                  {pageItems.map((review, cardIndex) => {
                     const isActive = activeCard === review.id;
+                    const accentClass =
+                      cardIndex === 0
+                        ? style.reviews__cardTall
+                        : cardIndex === 1
+                          ? style.reviews__cardWide
+                          : style.reviews__cardSharp;
 
                     return (
                       <div
                         key={review.id}
                         onClick={() => setActiveCard(review.id)}
-                        className={`${style.reviews__card} ${
+                        className={`${style.reviews__card} ${accentClass} ${
                           isActive ? style.activeCard : ""
                         }`}
                       >
-                        <div className={style.reviews__stars}>
-                          {"★".repeat(review.rating)}
+                        <div className={style.reviews__cardTop}>
+                          <div className={style.reviews__stars}>
+                            {"*".repeat(review.rating)}
+                          </div>
+                          <span className={style.reviews__badge}>Verified</span>
                         </div>
                         <p className={style.reviews__text}>{review.text}</p>
-                        <p className={style.reviews__author}>
-                           {review.name}
-                        </p>
+                        <p className={style.reviews__author}>{review.name}</p>
                       </div>
                     );
                   })}
@@ -101,21 +115,23 @@ const Reviews = () => {
         </button>
       </div>
 
-      <div className={style.reviews__dots}>
-        {Array.from({ length: totalPages }).map((_, index) => (
-          <span
-            key={index}
-            className={`${style.reviews__dot} ${
-              index === currentPage ? style.active : ""
-            }`}
-            onClick={() => setCurrentPage(index)}
-          />
-        ))}
-      </div>
+      <div className={style.reviews__bottom}>
+        <div className={style.reviews__dots}>
+          {Array.from({ length: totalPages }).map((_, index) => (
+            <span
+              key={index}
+              className={`${style.reviews__dot} ${
+                index === currentPage ? style.active : ""
+              }`}
+              onClick={() => setCurrentPage(index)}
+            />
+          ))}
+        </div>
 
-      <Link to="/review" className={style.reviews__button}>
-  Pokaż więcej
-</Link>
+        <Link to="/review" className={style.reviews__button}>
+          Pokaz wiecej
+        </Link>
+      </div>
     </section>
   );
 };

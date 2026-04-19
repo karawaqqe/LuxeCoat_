@@ -27,30 +27,8 @@ import sss from "../../img/gall/sss.jpg";
 import ssss from "../../img/gall/ssss.jpg";
 
 const images = [
-  blue,
-  j,
-  jj,
-  k,
-  kk,
-  kkk,
-  kkkk,
-  kkkkk,
-  kkkkkk,
-  kkkkkkk,
-  kkkkkkkk,
-  kol,
-  o,
-  oo,
-  ooo,
-  oooo,
-  ooooo,
-  oooooo,
-  r,
-  rr,
-  s,
-  ss,
-  sss,
-  ssss,
+  blue, j, jj, k, kk, kkk, kkkk, kkkkk, kkkkkk, kkkkkkk, kkkkkkkk, kol,
+  o, oo, ooo, oooo, ooooo, oooooo, r, rr, s, ss, sss, ssss,
 ];
 
 export default function Gallery() {
@@ -69,12 +47,8 @@ export default function Gallery() {
   useEffect(() => {
     const handleKey = (e) => {
       if (index === null) return;
-
       if (e.key === "ArrowRight") setIndex((i) => (i + 1) % images.length);
-
-      if (e.key === "ArrowLeft")
-        setIndex((i) => (i - 1 + images.length) % images.length);
-
+      if (e.key === "ArrowLeft") setIndex((i) => (i - 1 + images.length) % images.length);
       if (e.key === "Escape") setIndex(null);
     };
 
@@ -86,20 +60,20 @@ export default function Gallery() {
     hidden: {},
     show: {
       transition: {
-        staggerChildren: 0.08,
+        staggerChildren: 0.09,
       },
     },
   };
 
   const item = {
-    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    hidden: { opacity: 0, y: 46, scale: 0.96 },
     show: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        duration: 0.5,
-        ease: "easeOut",
+        duration: 0.9,
+        ease: [0.22, 1, 0.36, 1],
       },
     },
   };
@@ -115,7 +89,17 @@ export default function Gallery() {
 
   return (
     <section className={style.gallery}>
-      <h2 className={style.title}>Galeria</h2>
+      <div className={style.gallery__line}></div>
+
+      <div className={style.gallery__hero}>
+        <span className={style.kicker}>Full Showcase</span>
+        <h2 className={style.title}>Galeria</h2>
+        <p className={style.intro}>
+          Osobna strona galerii dostala bardziej premium uklad: ciemne tlo,
+          mocniejsze spacingi, lagodniejsze wejscia i modal, ktory wyglada jak
+          czesc systemu, a nie osobny widget.
+        </p>
+      </div>
 
       <motion.div
         className={style.grid}
@@ -127,9 +111,11 @@ export default function Gallery() {
           <motion.div
             key={i}
             variants={item}
-            className={style.card}
+            className={`${style.card} ${
+              i % 4 === 0 ? style.variantA : i % 4 === 1 ? style.variantB : i % 4 === 2 ? style.variantC : style.variantD
+            }`}
             onClick={() => setIndex(i)}
-            whileHover={{ scale: 1.04 }}
+            whileHover={{ y: -8 }}
           >
             <img
               src={img}
@@ -143,7 +129,7 @@ export default function Gallery() {
       </motion.div>
 
       <button className={style.moreBtn} onClick={handleToggle}>
-        {visible >= images.length ? "Ukryj" : "Pokaż więcej"}
+        {visible >= images.length ? "Ukryj" : "Pokaz wiecej"}
       </button>
 
       <AnimatePresence>
@@ -160,16 +146,15 @@ export default function Gallery() {
               src={images[index]}
               alt=""
               className={style.modalImg}
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.92, opacity: 0, y: 18 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.92, opacity: 0, y: 18 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               onDragEnd={(e, info) => {
-                if (info.offset.x < -100)
-                  setIndex((i) => (i + 1) % images.length);
-                if (info.offset.x > 100)
-                  setIndex((i) => (i - 1 + images.length) % images.length);
+                if (info.offset.x < -100) setIndex((i) => (i + 1) % images.length);
+                if (info.offset.x > 100) setIndex((i) => (i - 1 + images.length) % images.length);
               }}
             />
           </motion.div>

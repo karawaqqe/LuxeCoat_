@@ -20,10 +20,25 @@ body {
   overflow-x: hidden;
 }
 
+::selection {
+  background: rgba(212, 175, 55, 0.24);
+  color: #fff;
+}
+
 /* ===== MEDIA ===== */
 img, picture, video {
   max-width: 100%;
   display: block;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+}
+
+svg {
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 /* ===== LINKS ===== */
@@ -55,4 +70,15 @@ input, textarea {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 25px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

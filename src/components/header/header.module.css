@@ -1,24 +1,24 @@
 .header {
   width: 100%;
-  position: fixed; 
+  position: fixed;
   top: 0;
   z-index: 1000;
-  background: rgba(11, 11, 11, 0.85);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid transparent;
-  transition: all 0.3s ease;  
+  background: rgba(8, 8, 8, 0.82);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.08);
+  transition: all 0.3s ease;
 }
 
 .scrolled {
-  background: rgba(11, 11, 11, 0.65);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid #1a1a1a;
+  background: rgba(8, 8, 8, 0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.16);
 }
 
 .header__inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px; 
+  padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -65,9 +65,10 @@
   position: relative;
   text-decoration: none;
   font-family: "Public Sans", sans-serif;
-  color: #8f8f8f;
-  font-size: 13px; 
-  letter-spacing: 0.8px;
+  color: #9b9b9b;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   transition: 0.3s;
 }
 
@@ -77,10 +78,10 @@
   bottom: -6px;
   left: 0;
   width: 0%;
-  height: 2px;
+  height: 1px;
   background: linear-gradient(90deg, #d4af37, #ffd700);
   transition: 0.4s;
-  box-shadow: 0 0 10px rgba(212,175,55,0.6);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
 }
 
 .header__list a:hover {
@@ -96,17 +97,18 @@
   display: flex;
   align-items: center;
   gap: 15px;
-  min-width: 160px; 
+  min-width: 160px;
   justify-content: flex-end;
 }
 
 .header__phone {
   font-family: "Public Sans", sans-serif;
-  font-size: 13px;
-  color: #7a7a7a;
-  letter-spacing: 1px;
+  font-size: 12px;
+  color: #b89d47;
+  letter-spacing: 0.12em;
   white-space: nowrap;
   margin-left: 20px;
+  text-transform: uppercase;
 }
 
 .header__phone:hover {
@@ -119,7 +121,7 @@
   height: 14px;
   position: relative;
   cursor: pointer;
-   -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .burger span {
@@ -169,11 +171,12 @@
     left: 0;
     right: 0;
     width: 100%;
-    background: rgba(11,11,11,0.97);
+    background: rgba(8, 8, 8, 0.97);
     backdrop-filter: blur(14px);
     display: none;
     flex-direction: column;
     padding: 50px 0;
+    border-top: 1px solid rgba(212, 175, 55, 0.08);
   }
 
   .header__nav.active {

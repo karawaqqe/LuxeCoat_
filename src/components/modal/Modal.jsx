@@ -5,15 +5,12 @@ import { createPortal } from "react-dom";
 
 const Modal = ({ onClose }) => {
   const [closing, setClosing] = useState(false);
-
   const [form, setForm] = useState({
     name: "",
     message: "",
   });
-
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
-
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
 
@@ -34,7 +31,7 @@ const Modal = ({ onClose }) => {
 
   const handleClose = () => {
     setClosing(true);
-    setTimeout(onClose, 400);
+    setTimeout(onClose, 420);
   };
 
   useEffect(() => {
@@ -48,8 +45,7 @@ const Modal = ({ onClose }) => {
   }, [success]);
 
   const validate = () => {
-    let newErrors = {};
-
+    const newErrors = {};
     if (!form.name.trim()) newErrors.name = true;
     if (!form.message.trim()) newErrors.message = true;
     if (rating === 0) newErrors.rating = true;
@@ -64,7 +60,6 @@ const Modal = ({ onClose }) => {
     if (!validate()) return;
 
     if ("YOUR_SERVICE_ID" === "YOUR_SERVICE_ID") {
-      console.log("FAKE SEND", form, rating);
       setSuccess(true);
       return;
     }
@@ -86,93 +81,64 @@ const Modal = ({ onClose }) => {
         setRating(0);
       })
       .catch(() => {
-        alert("Błąd wysyłki");
+        alert("Blad wysylki");
       });
   };
 
   return createPortal(
     <div
-      className={`${style.overlay} ${
-        closing ? style.overlayClosing : ""
-      }`}
+      className={`${style.overlay} ${closing ? style.overlayClosing : ""}`}
       onClick={handleClose}
     >
       <div
-        className={`${style.modal} ${
-          closing ? style.modalClosing : ""
-        }`}
+        className={`${style.modal} ${closing ? style.modalClosing : ""}`}
         onClick={(e) => e.stopPropagation()}
       >
         <button className={style.close} onClick={handleClose}>
-          ✕
+          +
         </button>
 
-        <h2 className={style.title}>Napisz opinię</h2>
+        <span className={style.kicker}>Client Review</span>
+        <h2 className={style.title}>Napisz opinie</h2>
 
         <div className={style.stars}>
           {[1, 2, 3, 4, 5].map((star) => (
             <span
               key={star}
-              className={`${style.star} ${
-                (hover || rating) >= star
-                  ? style.activeStar
-                  : ""
-              }`}
+              className={`${style.star} ${(hover || rating) >= star ? style.activeStar : ""}`}
               onClick={() => setRating(star)}
               onMouseEnter={() => setHover(star)}
               onMouseLeave={() => setHover(0)}
             >
-              ★
+              *
             </span>
           ))}
         </div>
 
-        {errors.rating && (
-          <div className={style.errorText}>
-            Wybierz ocenę ⭐
-          </div>
-        )}
+        {errors.rating && <div className={style.errorText}>Wybierz ocene</div>}
 
         <form className={style.form} onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Twoje imię"
-            className={`${style.input} ${
-              errors.name ? style.error : ""
-            }`}
+            placeholder="Twoje imie"
+            className={`${style.input} ${errors.name ? style.error : ""}`}
             value={form.name}
-            onChange={(e) =>
-              setForm({ ...form, name: e.target.value })
-            }
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
           />
 
           <textarea
             placeholder="Twoja opinia..."
-            className={`${style.textarea} ${
-              errors.message ? style.error : ""
-            }`}
+            className={`${style.textarea} ${errors.message ? style.error : ""}`}
             value={form.message}
-            onChange={(e) =>
-              setForm({
-                ...form,
-                message: e.target.value,
-              })
-            }
+            onChange={(e) => setForm({ ...form, message: e.target.value })}
           />
 
-          {success && (
-            <div className={style.success}>
-              Opinia została wysłana!
-            </div>
-          )}
+          {success && <div className={style.success}>Opinia zostala wyslana</div>}
 
-          <button className={style.submit}>
-            Wyślij
-          </button>
+          <button className={style.submit}>Wyslij</button>
         </form>
       </div>
     </div>,
-
     document.getElementById("modal-root")
   );
 };
