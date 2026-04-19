@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import styles from "./ppfService.module.css";
 
-import heroImage from "../../../img/gallery/1.jpg";
-import detailImageOne from "../../../img/gallery/4.jpg";
-import detailImageTwo from "../../../img/gallery/7.jpg";
+import heroImage from "../../../img/gallery/y.jpg";
+import detailImageOne from "../../../img/gallery/yyyy.jpg";
+import detailImageTwo from "../../../img/gallery/yyyyyyy.jpg";
 
 const stats = [
   { value: "PPF", label: "Ochrona frontu i newralgicznych stref" },
@@ -21,6 +21,7 @@ export default function PpfService() {
   return (
     <section className={styles.page}>
       <div className={styles.bgLine}></div>
+      <div className={styles.gridBg}></div>
       <div className={styles.container}>
         <div className={styles.hero}>
           <div className={styles.heroContent}>

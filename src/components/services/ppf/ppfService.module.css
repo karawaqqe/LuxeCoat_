@@ -9,10 +9,21 @@
   color: #f2f2f2;
 }
 
+.gridBg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4), transparent 85%);
+  pointer-events: none;
+}
+
 .bgLine {
   position: absolute;
   top: 0;
-  left: 9%;
+  left: 8%;
   width: 1px;
   height: 100%;
   background: linear-gradient(180deg, transparent, rgba(212, 175, 55, 0.35), transparent);

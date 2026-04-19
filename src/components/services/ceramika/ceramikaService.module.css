@@ -8,10 +8,21 @@
   color: #f3f3f3;
 }
 
+.gridBg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4), transparent 85%);
+  pointer-events: none;
+}
+
 .gloss {
   position: absolute;
-  top: 70px;
-  right: 8%;
+  top: -30px;
+  right: -3%;
   width: 240px;
   height: 240px;
   border-radius: 999px;

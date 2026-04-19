@@ -256,4 +256,9 @@
     flex-direction: column;
     align-items: flex-start;
   }
+
+
+.reviews__card {
+  min-height: 400px;
+}
 }

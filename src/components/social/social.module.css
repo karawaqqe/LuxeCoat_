@@ -1,11 +1,9 @@
+
 .social {
   position: relative;
   overflow: hidden;
   padding: 80px 20px;
-  background:
-    radial-gradient(circle at top left, rgba(212, 175, 55, 0.05), transparent 45%),
-    radial-gradient(circle at bottom right, rgba(212, 175, 55, 0.03), transparent 45%),
-    #050505;
+background-color: #0b0b0c;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.9s ease, transform 0.9s ease;
@@ -21,7 +19,7 @@
   margin: 0 auto;
 }
 
-/* HEADER — compact */
+/* HEADER */
 .head {
   max-width: 720px;
   margin: 0 auto 50px;
@@ -60,18 +58,15 @@
   flex-direction: column;
 }
 
-/* ROW ITEM — tighter */
+/* ITEM */
 .social__item {
   position: relative;
   display: flex;
   align-items: center;
   gap: 28px;
-
   padding: 22px 0;
   text-decoration: none;
-
   border-bottom: 1px solid rgba(212, 175, 55, 0.10);
-
   transition: all 0.35s ease;
 }
 
@@ -79,7 +74,6 @@
   transform: translateX(6px);
 }
 
-/* LINE EFFECT */
 .social__item::before {
   content: "";
   position: absolute;
@@ -95,27 +89,24 @@
   width: 100%;
 }
 
-/* IMAGE — FIXED (NO CROP) */
+/* IMAGE */
 .social__imageWrap {
   position: relative;
   width: 200px;
   height: 120px;
   flex-shrink: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255,255,255,0.04);
   overflow: hidden;
 }
 
-/* IMPORTANT FIX HERE */
 .social__imageWrap img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* <-- FIX: no cropping */
+  object-fit: contain;
   transition: transform 0.5s ease;
   padding: 10px;
 }
@@ -160,7 +151,7 @@
   opacity: 1;
 }
 
-/* CTA — smaller */
+/* CTA */
 .ctaWrap {
   display: flex;
   justify-content: center;
@@ -183,20 +174,27 @@
   border-bottom-color: #fff;
 }
 
-/* RESPONSIVE */
+/* TABLET */
 @media (max-width: 900px) {
   .social__item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
+    gap: 18px;
   }
 
   .social__imageWrap {
-    width: 100%;
-    height: 180px;
+    width: 140px;
+    height: 100px;
+  }
+
+  .social__label {
+    font-size: 1.1rem;
+  }
+
+  .social__content p {
+    font-size: 0.9rem;
   }
 }
 
+/* PHONE */
 @media (max-width: 520px) {
   .social {
     padding: 60px 14px;
@@ -205,4 +203,34 @@
   .social__title {
     font-size: 2rem;
   }
+
+  .social__item {
+    gap: 14px;
+    align-items: center;
+  }
+
+  .social__imageWrap {
+    width: 90px;
+    height: 70px;
+  }
+
+  .social__imageWrap img {
+    width: 100%;
+    height: 100%;
+    padding: 6px;
+  }
+
+  .social__label {
+    font-size: 1rem;
+  }
+
+  .social__content p {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .social__arrow {
+    font-size: 0.9rem;
+  }
 }
+

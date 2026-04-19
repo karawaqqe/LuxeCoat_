@@ -2,16 +2,16 @@ import { useState, useEffect, useRef } from "react";
 import style from "./gallery.module.css";
 import { Link } from "react-router-dom";
 
-import img1 from "../../img/gallery/1.jpg";
-import img2 from "../../img/gallery/2.jpg";
-import img3 from "../../img/gallery/3.jpg";
-import img4 from "../../img/gallery/4.jpg";
-import img5 from "../../img/gallery/5.jpg";
-import img6 from "../../img/gallery/6.jpg";
-import img7 from "../../img/gallery/7.jpg";
-import img8 from "../../img/gallery/8.jpg";
+import y from "../../img/gallery/y.jpg";
+import yy from "../../img/gallery/yy.jpg";
+import yyy from "../../img/gallery/yyy.jpg";
+import yyyy from "../../img/gallery/yyyy.jpg";
+import yyyyy from "../../img/gallery/yyyyy.jpg";
+import yyyyyy from "../../img/gallery/yyyyyy.jpg";
+import yyyyyyy from "../../img/gallery/yyyyyyy.jpg";
+import yyyyyyyy from "../../img/gallery/yyyyyyyy.jpg";
 
-const images = [img1, img2, img3, img4, img5, img6, img7, img8];
+const images = [y, yy, yyy, yyyy, yyyyy, yyyyyy, yyyyyyy, yyyyyyyy];
 
 const Gallery = () => {
   const [index, setIndex] = useState(0);

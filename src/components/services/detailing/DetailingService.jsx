@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import styles from "./detailingService.module.css";
 
-import heroImage from "../../../img/gallery/4.jpg";
-import detailImageOne from "../../../img/gallery/1.jpg";
-import detailImageTwo from "../../../img/gallery/3.jpg";
+import heroImage from "../../../img/gallery/yyyy.jpg";
+import detailImageOne from "../../../img/gallery/y.jpg";
+import detailImageTwo from "../../../img/gallery/yyy.jpg";
 
 const pillars = [
   "Wnetrze",
@@ -21,6 +21,7 @@ export default function DetailingService() {
   return (
     <section className={styles.page}>
       <div className={styles.gridBg}></div>
+      <div className={styles.bgLine}></div>
       <div className={styles.container}>
         <div className={styles.hero}>
           <div className={styles.heroCopy}>

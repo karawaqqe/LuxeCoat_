@@ -19,6 +19,15 @@
   pointer-events: none;
 }
 
+.bgLine {
+  position: absolute;
+  top: 0;
+  left: 8%;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgba(212, 175, 55, 0.35), transparent);
+}
+
 .container {
   position: relative;
   z-index: 1;

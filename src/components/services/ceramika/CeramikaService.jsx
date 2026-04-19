@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import styles from "./ceramikaService.module.css";
 
-import heroImage from "../../../img/gallery/3.jpg";
-import detailImageOne from "../../../img/gallery/6.jpg";
-import detailImageTwo from "../../../img/gallery/2.jpg";
+
+import heroImage from "../../../img/gall/ooooo.jpg";
+import detailImageOne from "../../../img/gallery/yyyyy.jpg";
+import detailImageTwo from "../../../img/gallery/yyyyyy.jpg";
+
 
 const specs = [
   "Hydrofobowosc i latwiejsza pielegnacja",
@@ -15,6 +17,7 @@ export default function CeramikaService() {
   return (
     <section className={styles.page}>
       <div className={styles.gloss}></div>
+      <div className={styles.gridBg}></div>
       <div className={styles.container}>
         <div className={styles.hero}>
           <span className={styles.kicker}>Gloss Layer</span>
@@ -46,7 +49,7 @@ export default function CeramikaService() {
             <div className={styles.specGrid}>
               {specs.map((item) => (
                 <div key={item} className={styles.specCard}>
-                  <span className={styles.dot}></span>
+                  {/* <span className={styles.dot}></span> */}
                   <p>{item}</p>
                 </div>
               ))}

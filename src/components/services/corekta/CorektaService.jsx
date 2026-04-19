@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import styles from "./corektaService.module.css";
 
-import heroImage from "../../../img/gallery/2.jpg";
-import detailImageOne from "../../../img/gallery/5.jpg";
-import detailImageTwo from "../../../img/gallery/8.jpg";
+import heroImage from "../../../img/gallery/yy.jpg";
+import detailImageOne from "../../../img/gallery/yyyyy.jpg";
+import detailImageTwo from "../../../img/gallery/yyyyyyyy.jpg";
 
 const points = [
   "Usuniecie swirl marks i drobnych rys",
@@ -14,6 +14,7 @@ const points = [
 export default function CorektaService() {
   return (
     <section className={styles.page}>
+      <div className={styles.gridBg}></div>
       <div className={styles.container}>
         <div className={styles.hero}>
           <div className={styles.heroMedia}>

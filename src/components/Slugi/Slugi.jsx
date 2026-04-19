@@ -5,21 +5,27 @@ import l from "../../img/uslugi/l.jpg";
 import ll from "../../img/uslugi/ll.jpg";
 import lll from "../../img/uslugi/lll.jpg";
 
+import k from "../../img/gall/k.jpg";
+import kk from "../../img/gall/kk.jpg";
+import kkkk from "../../img//gall/kkkk.jpg";
+import kkkkk from "../../img/gall/kkkkk.jpg";
+
+
 const featureCards = [
   {
     title: "Jak pracujemy",
     text: "Laczymy precyzje wykonania, bezpieczne procesy i premium kosmetyki, aby kazdy etap byl dopracowany.",
-    image: l,
+    image: kk,
   },
   {
     title: "Dlaczego my",
     text: "Dbamy o efekt koncowy, detale i spojnosc wykonania, dzieki czemu auto wyglada swiezo i premium.",
-    image: ll,
+    image: kkkk,
   },
   {
     title: "Szybki kontakt",
     text: "Skonsultuj zakres prac i termin realizacji. Odpowiemy szybko i pomozemy dobrac najlepsza usluge.",
-    image: lll,
+    image: kkkkk,
   },
 ];
 
@@ -41,7 +47,7 @@ const services = [
   },
   {
     title: "Detailing",
-    image: ll,
+    image: k,
     to: "/uslugi/detailing",
   },
 ];
