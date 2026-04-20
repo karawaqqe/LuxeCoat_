@@ -190,3 +190,17 @@
     min-height: 320px;
   }
 }
+
+.successMessage {
+  margin-top: 14px;
+  color: #d4af37;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.errorMessage {
+  margin-top: 14px;
+  color: #ff6b6b;
+  font-size: 0.95rem;
+  text-align: center;
+}

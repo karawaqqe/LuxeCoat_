@@ -1,10 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 import style from "./contact.module.css";
 import instagram from "../../img/social/instagram.jpg";
 import tiktok from "../../img/social/tiktok.jpg";
 import facebook from "../../img/social/facebook.jpg";
 
 export default function Contact() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      setStatus("error");
+      return;
+    }
+
+    setLoading(true);
+    setStatus("");
+
+    try {
+      await emailjs.send(
+        "service_okr5znm", // <- сюда свой service_id
+        "template_kgu12j5", // <- сюда свой template_id
+        {
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        },
+        "mhn1VnBY0AFhQMUES" // <- сюда свой public_key
+      );
+
+      setStatus("success");
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      setStatus("error");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className={style.contact}>
       <div className={style.bgLine}></div>
@@ -23,7 +79,9 @@ export default function Contact() {
         <div className={style.infoGrid}>
           <div className={style.infoBlock}>
             <h3 className={style.infoTitle}>Adres</h3>
-            <p className={style.infoText}>ul. Kowalska 12, 50-001 Wroclaw, Polska</p>
+            <p className={style.infoText}>
+              ul. Kowalska 12, 50-001 Wroclaw, Polska
+            </p>
             <a
               href="https://maps.app.goo.gl/3bnXW45MvXDSaevj8?g_st=ic"
               target="_blank"
@@ -69,27 +127,54 @@ export default function Contact() {
 
           <div className={style.formSection}>
             <h3 className={style.formTitle}>Wyslij do nas wiadomosc</h3>
-            <form className={style.contactForm} onSubmit={(e) => e.preventDefault()}>
+
+            <form className={style.contactForm} onSubmit={sendEmail}>
               <input
                 type="text"
+                name="name"
                 placeholder="Twoje imie"
                 className={style.contactInput}
+                value={form.name}
+                onChange={handleChange}
                 required
               />
+
               <input
                 type="email"
+                name="email"
                 placeholder="Twoj email"
                 className={style.contactInput}
+                value={form.email}
+                onChange={handleChange}
                 required
               />
+
               <textarea
+                name="message"
                 placeholder="Twoja wiadomosc"
                 className={style.contactTextarea}
+                value={form.message}
+                onChange={handleChange}
                 required
               />
-              <button type="submit" className={style.submitBtn}>
-                Wyslij
+
+              <button
+                type="submit"
+                className={style.submitBtn}
+                disabled={loading}
+              >
+                {loading ? "Wysylanie..." : "Wyslij"}
               </button>
+
+              {status === "success" && (
+                <p className={style.successMessage}>Wiadomosc zostala wyslana ✅</p>
+              )}
+
+              {status === "error" && (
+                <p className={style.errorMessage}>
+                  Wystapil blad. Sprobuj ponownie ❌
+                </p>
+              )}
             </form>
 
             <div className={style.social__icons}>
