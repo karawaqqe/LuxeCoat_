@@ -5,16 +5,12 @@ import heroImage from "../../../img/gallery/yyyy.jpg";
 import detailImageOne from "../../../img/gallery/y.jpg";
 import detailImageTwo from "../../../img/gallery/yyy.jpg";
 
-const pillars = [
-  "Wnetrze",
-  "Nadwozie",
-  "Detale",
-];
+const pillars = ["Wnętrze", "Nadwozie", "Detale"];
 
 const checklist = [
   "Indywidualne dopasowanie zakresu prac",
-  "Dokladne odswiezenie powierzchni",
-  "Finalny efekt premium i czystosc w szczegolach",
+  "Dokładne odświeżenie powierzchni",
+  "Finalny efekt premium i czystość w szczegółach",
 ];
 
 export default function DetailingService() {
@@ -25,12 +21,12 @@ export default function DetailingService() {
       <div className={styles.container}>
         <div className={styles.hero}>
           <div className={styles.heroCopy}>
-            <span className={styles.kicker}>Full Experience</span>
+            <span className={styles.kicker}>Pełne dopracowanie</span>
             <h1 className={styles.title}>Detailing</h1>
             <p className={styles.description}>
-              Detailing to pelne dopracowanie auta. Skupiamy sie nie tylko na
-              czystosci, ale na odbiorze calego samochodu: od powierzchni,
-              przez wnetrze, po finalny efekt wizualny.
+              Detailing to pełne dopracowanie auta. Skupiamy się nie tylko na
+              czystości, ale na odbiorze całego samochodu: od powierzchni,
+              przez wnętrze, po finalny efekt wizualny.
             </p>
             <div className={styles.pillars}>
               {pillars.map((item) => (
@@ -40,7 +36,7 @@ export default function DetailingService() {
           </div>
 
           <div className={styles.heroImage}>
-            <img src={heroImage} alt="Detailing" />
+            <img src={heroImage} alt="Detailing" decoding="async" />
           </div>
         </div>
 
@@ -54,17 +50,17 @@ export default function DetailingService() {
             </ul>
             <div className={styles.actions}>
               <Link to="/contact" className={styles.primaryButton}>
-                Skontaktuj sie
+                Skontaktuj się
               </Link>
               <Link to="/uslugi" className={styles.secondaryButton}>
-                Wroc do uslug
+                Wróć do usług
               </Link>
             </div>
           </div>
 
           <div className={styles.galleryColumn}>
-            <img src={detailImageOne} alt="Detailing detail 1" />
-            <img src={detailImageTwo} alt="Detailing detail 2" />
+            <img src={detailImageOne} alt="Detailing detail 1" loading="lazy" decoding="async" />
+            <img src={detailImageTwo} alt="Detailing detail 2" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>

@@ -1,26 +1,16 @@
-import { useState, useEffect } from "react";
+import { lazy, Suspense, useState } from "react";
 import style from "./review.module.css";
 import reviews from "../../data/reviews.json";
-import Modal from "../../components/modal/Modal";
+
+const Modal = lazy(() => import("../../components/modal/Modal"));
 
 const ReviewsDetailed = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(0);
-  const [increment, setIncrement] = useState(6);
-  const [initialCount, setInitialCount] = useState(6);
-
-  useEffect(() => {
-    const width = window.innerWidth;
-    if (width < 768) {
-      setIncrement(3);
-      setInitialCount(3);
-      setVisibleCount(3);
-    } else {
-      setIncrement(6);
-      setInitialCount(6);
-      setVisibleCount(6);
-    }
-  }, []);
+  const [initialCount] = useState(() => (
+    typeof window !== "undefined" && window.innerWidth < 768 ? 3 : 6
+  ));
+  const [increment] = useState(initialCount);
+  const [visibleCount, setVisibleCount] = useState(initialCount);
 
   const handleShowMore = () => {
     if (visibleCount >= reviews.length) {
@@ -38,10 +28,10 @@ const ReviewsDetailed = () => {
 
       <div className={style.gall__hero}>
         <span className={style.gall__kicker}>All Reviews</span>
-        <h2 className={style.gall__title}>Opinie klientow</h2>
+        <h2 className={style.gall__title}>Opinie klientów</h2>
         <p className={style.gall__intro}>
-          Pelna sciana recenzji w bardziej wyrazistej, gallery-like kompozycji.
-          Duze karty, lekkie przesuniecia i mocniejszy premium feeling.
+          Pełna ściana recenzji w bardziej wyrazistej kompozycji. Duże karty,
+          lekkie przesunięcia i mocniejszy efekt premium.
         </p>
       </div>
 
@@ -58,7 +48,13 @@ const ReviewsDetailed = () => {
             }`}
           >
             <div className={style.gall__cardTop}>
-              <div className={style.gall__stars}>{"*".repeat(review.rating)}</div>
+              <div className={style.gall__stars}>
+                {Array.from({ length: review.rating }).map((_, starIndex) => (
+                  <svg key={starIndex} aria-hidden="true">
+                    <use href="#icon-star-full" />
+                  </svg>
+                ))}
+              </div>
               <span className={style.gall__tag}>LuxeCoat</span>
             </div>
             <p className={style.gall__text}>{review.text}</p>
@@ -69,18 +65,22 @@ const ReviewsDetailed = () => {
 
       <div className={style.gall__actions}>
         <button className={style.gall__button} onClick={handleShowMore}>
-          {allVisible ? "Ukryj" : "Pokaz wiecej"}
+          {allVisible ? "Ukryj" : "Pokaż więcej"}
         </button>
 
         <button
           className={style.gall__buttonWrite}
           onClick={() => setIsOpen(true)}
         >
-          Napisz opinie
+          Napisz opinię
         </button>
       </div>
 
-      {isOpen && <Modal onClose={() => setIsOpen(false)} />}
+      {isOpen && (
+        <Suspense fallback={null}>
+          <Modal onClose={() => setIsOpen(false)} />
+        </Suspense>
+      )}
     </section>
   );
 };

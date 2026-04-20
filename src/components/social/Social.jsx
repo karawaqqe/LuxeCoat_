@@ -10,19 +10,19 @@ const socials = [
     label: "Instagram",
     href: "https://www.instagram.com/luxecoat_premium_auto_studio?igsh=MW15M252NG9iYm83aQ%3D%3D&utm_source=qr",
     image: instagram,
-    stat: "Backstage / reels / realizacje",
+    stat: "Kulisy / reels / realizacje",
   },
   {
     label: "TikTok",
     href: "https://www.tiktok.com/@matsafei_vlad",
     image: tiktok,
-    stat: "Short form / efekt / transformacje",
+    stat: "Krótkie formy / efekt / transformacje",
   },
   {
     label: "Facebook",
     href: "https://www.facebook.com/share/1L1hX1ppcp/?mibextid=wwXIfr",
     image: facebook,
-    stat: "Kontakt / aktualnosci / community",
+    stat: "Kontakt / aktualności / społeczność",
   },
 ];
 
@@ -38,11 +38,11 @@ export default function SocialSection() {
     <section className={`${styles.social} ${visible ? styles.active : ""}`}>
       <div className={styles.container}>
         <div className={styles.head}>
-          <span className={styles.kicker}>Online Presence</span>
-          <h2 className={styles.social__title}>Sledz nas</h2>
+          <span className={styles.kicker}>Media społecznościowe</span>
+          <h2 className={styles.social__title}>Śledź nas</h2>
           <p className={styles.social__text}>
-            Zamiast zwyklych ikon masz bardziej dopracowana strefe sociali,
-            ktora wyglada jak premium dashboard marki i lepiej pasuje do reszty
+            Zamiast zwykłych ikon masz bardziej dopracowaną strefę sociali,
+            która wygląda jak premium dashboard marki i lepiej pasuje do reszty
             serwisu.
           </p>
         </div>
@@ -57,12 +57,17 @@ export default function SocialSection() {
               className={`${styles.social__item} ${styles[`variant${index + 1}`]}`}
             >
               <div className={styles.social__imageWrap}>
-                <img src={item.image} alt={item.label} />
+                <img
+                  src={item.image}
+                  alt={item.label}
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div className={styles.social__content}>
                 <span className={styles.social__label}>{item.label}</span>
                 <p>{item.stat}</p>
-                <span className={styles.social__arrow}>Otworz profil</span>
+                <span className={styles.social__arrow}>Otwórz profil</span>
               </div>
             </a>
           ))}
@@ -70,7 +75,7 @@ export default function SocialSection() {
 
         <div className={styles.ctaWrap}>
           <Link to="/contact" className={styles.social__btn}>
-            Skontaktuj sie z nami
+            Skontaktuj się z nami
           </Link>
         </div>
       </div>

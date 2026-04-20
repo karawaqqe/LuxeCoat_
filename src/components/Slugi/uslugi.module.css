@@ -2,9 +2,13 @@
   position: relative;
   overflow: hidden;
   background:
+    linear-gradient(rgba(255, 255, 255, 0.024) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px),
+    radial-gradient(circle at 84% 20%, rgba(155, 155, 155, 0.08), transparent 24%),
     linear-gradient(135deg, rgba(99, 99, 99, 0.05) 0%, transparent 24%),
     linear-gradient(315deg, rgba(79, 79, 79, 0.04) 0%, transparent 20%),
     #0f0f0f;
+  background-size: 54px 54px, 54px 54px, auto, auto, auto;
   color: #5f5e5e;
   padding: 110px 20px 60px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;

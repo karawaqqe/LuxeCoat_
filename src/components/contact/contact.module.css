@@ -3,9 +3,26 @@
   overflow: hidden;
   padding: 120px 20px 70px;
   background:
-    linear-gradient(140deg, rgba(212, 175, 55, 0.06) 0%, transparent 18%),
+    linear-gradient(rgba(255, 255, 255, 0.024) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px),
+    radial-gradient(ellipse 92% 38% at 85% 22%, rgba(175, 175, 175, 0.07), transparent 70%),
+    linear-gradient(140deg, rgba(155, 155, 155, 0.055) 0%, transparent 28%),
     #0e0e10;
+  background-size: 54px 54px, 54px 54px, auto, auto;
   color: #d4af37;
+}
+
+.contact::after {
+  content: "";
+  position: absolute;
+  left: 6%;
+  bottom: 12%;
+  width: 180px;
+  height: 180px;
+  border: 1px solid rgba(170, 170, 170, 0.12);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  transform: rotate(18deg);
+  pointer-events: none;
 }
 
 .bgLine {
@@ -19,7 +36,7 @@
 
 .container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 1120px;
   margin: 0 auto;
 }
@@ -74,6 +91,19 @@
   padding: 24px;
 }
 
+.infoBlock:nth-child(1) {
+  clip-path: polygon(0 0, 92% 0, 100% 18%, 100% 100%, 0 100%);
+}
+
+.infoBlock:nth-child(2) {
+  clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%, 0 18%);
+  transform: translateY(16px);
+}
+
+.infoBlock:nth-child(3) {
+  clip-path: polygon(0 0, 100% 0, 100% 82%, 92% 100%, 0 100%);
+}
+
 .infoTitle {
   margin-bottom: 12px;
   font-family: "Public Sans", sans-serif;
@@ -102,10 +132,12 @@
 .mapWrapper {
   min-height: 520px;
   overflow: hidden;
+  clip-path: polygon(0 0, 96% 0, 100% 10%, 100% 100%, 0 100%);
 }
 
 .formSection {
   padding: 30px;
+  clip-path: polygon(6% 0, 100% 0, 100% 100%, 0 100%, 0 12%);
 }
 
 .formTitle {
@@ -170,6 +202,10 @@
   .layout {
     grid-template-columns: 1fr;
   }
+
+  .infoBlock:nth-child(2) {
+    transform: none;
+  }
 }
 
 @media (max-width: 520px) {
@@ -189,6 +225,15 @@
   .mapWrapper {
     min-height: 320px;
   }
+
+  .infoBlock,
+  .infoBlock:nth-child(1),
+  .infoBlock:nth-child(2),
+  .infoBlock:nth-child(3),
+  .mapWrapper,
+  .formSection {
+    clip-path: none;
+  }
 }
 
 .successMessage {
@@ -203,4 +248,11 @@
   color: #ff6b6b;
   font-size: 0.95rem;
   text-align: center;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
 }

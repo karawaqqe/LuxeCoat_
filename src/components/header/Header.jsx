@@ -55,7 +55,7 @@ const Header = () => {
           <ul className={style.header__list}>
             <li>
               <Link to="/" onClick={() => setMenuOpen(false)}>
-                Strona glowna
+                Strona główna
               </Link>
             </li>
             <li>
@@ -75,7 +75,7 @@ const Header = () => {
             </li>
             <li>
               <Link to="/uslugi" onClick={() => setMenuOpen(false)}>
-                Uslugi
+                Usługi
               </Link>
             </li>
           </ul>

@@ -1,4 +1,3 @@
-/* ===== RESET (чистая база) ===== */
 *,
 *::before,
 *::after {
@@ -7,7 +6,6 @@
   box-sizing: border-box;
 }
 
-/* ===== ROOT ===== */
 html {
   scroll-behavior: smooth;
 }
@@ -20,12 +18,21 @@ body {
   overflow-x: hidden;
 }
 
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  position: relative;
+  isolation: isolate;
+}
+
 ::selection {
   background: rgba(212, 175, 55, 0.24);
   color: #fff;
 }
 
-/* ===== MEDIA ===== */
 img, picture, video {
   max-width: 100%;
   display: block;
@@ -41,31 +48,26 @@ svg {
   -webkit-user-select: none;
 }
 
-/* ===== LINKS ===== */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* ===== LISTS ===== */
 ul, ol {
   list-style: none;
 }
 
-/* ===== BUTTONS ===== */
 button {
   border: none;
   background: none;
   cursor: pointer;
 }
 
-/* ===== INPUT ===== */
 input, textarea {
   outline: none;
   border: none;
 }
 
-/* ===== CONTAINER (как у норм сайтов) ===== */
 .container {
   max-width: 1200px;
   margin: 0 auto;

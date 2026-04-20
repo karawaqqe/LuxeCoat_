@@ -2,9 +2,9 @@
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(212, 175, 55, 0.04) 0%, transparent 20%),
+    linear-gradient(180deg, rgba(1, 1, 1, 0.04) 0%, transparent 20%),
     #090909;
-  border-top: 1px solid rgba(212, 175, 55, 0.12);
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .footer::before {

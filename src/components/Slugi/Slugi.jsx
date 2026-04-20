@@ -7,24 +7,24 @@ import lll from "../../img/uslugi/lll.jpg";
 
 import k from "../../img/gall/k.jpg";
 import kk from "../../img/gall/kk.jpg";
-import kkkk from "../../img//gall/kkkk.jpg";
+import kkkk from "../../img/gall/kkkk.jpg";
 import kkkkk from "../../img/gall/kkkkk.jpg";
 
 
 const featureCards = [
   {
     title: "Jak pracujemy",
-    text: "Laczymy precyzje wykonania, bezpieczne procesy i premium kosmetyki, aby kazdy etap byl dopracowany.",
+    text: "Łączymy precyzję wykonania, bezpieczne procesy i premium kosmetyki, aby każdy etap był dopracowany.",
     image: kk,
   },
   {
     title: "Dlaczego my",
-    text: "Dbamy o efekt koncowy, detale i spojnosc wykonania, dzieki czemu auto wyglada swiezo i premium.",
+    text: "Dbamy o efekt końcowy, detale i spójność wykonania, dzięki czemu auto wygląda świeżo i premium.",
     image: kkkk,
   },
   {
     title: "Szybki kontakt",
-    text: "Skonsultuj zakres prac i termin realizacji. Odpowiemy szybko i pomozemy dobrac najlepsza usluge.",
+    text: "Skonsultuj zakres prac i termin realizacji. Odpowiemy szybko i pomożemy dobrać najlepszą usługę.",
     image: kkkkk,
   },
 ];
@@ -61,11 +61,11 @@ const Uslugi = () => {
 
       <div className={styles.container}>
         <div className={styles.hero}>
-          <h1 className={styles.title}>Uslugi</h1>
+          <h1 className={styles.title}>Usługi</h1>
           <p className={styles.description}>
-            Strona zaprojektowana tak, zeby od razu pokazac charakter marki:
-            ciemno, ostro i premium. Kliknij wybrana usluge, aby przejsc na jej
-            osobna strone.
+            Strona zaprojektowana tak, żeby od razu pokazać charakter marki:
+            ciemno, ostro i premium. Kliknij wybraną usługę, aby przejść na jej
+            osobną stronę.
           </p>
         </div>
 
@@ -77,14 +77,20 @@ const Uslugi = () => {
               style={{ animationDelay: `${0.2 + index * 0.2}s` }}
             >
               <div className={styles.infoImageWrap}>
-                <img className={styles.infoImage} src={card.image} alt={card.title} />
+                <img
+                  className={styles.infoImage}
+                  src={card.image}
+                  alt={card.title}
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div className={styles.infoContent}>
                 <h2 className={styles.infoTitle}>{card.title}</h2>
                 <p className={styles.infoText}>{card.text}</p>
                 {card.title === "Szybki kontakt" ? (
                   <Link className={styles.inlineLink} to="/contact">
-                    Przejdz do kontaktu
+                    Przejdź do kontaktu
                   </Link>
                 ) : null}
               </div>
@@ -93,9 +99,9 @@ const Uslugi = () => {
         </div>
 
         <div className={styles.servicesHeader}>
-          <h2 className={styles.sectionTitle}>Nasze uslugi</h2>
+          <h2 className={styles.sectionTitle}>Nasze usługi</h2>
           <p className={styles.sectionText}>
-            Kazda karta prowadzi do osobnej strony z informacjami o usludze.
+            Każda karta prowadzi do osobnej strony z informacjami o usłudze.
           </p>
         </div>
 
@@ -112,10 +118,12 @@ const Uslugi = () => {
                   className={styles.serviceImage}
                   src={service.image}
                   alt={service.title}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <h3 className={styles.serviceTitle}>{service.title}</h3>
-              <span className={styles.serviceArrow}>Zobacz wiecej</span>
+              <span className={styles.serviceArrow}>Zobacz więcej</span>
             </Link>
           ))}
         </div>
@@ -123,15 +131,15 @@ const Uslugi = () => {
         <div className={styles.ctaWrap}>
           <div className={styles.ctaEdge}></div>
           <div className={styles.ctaCard}>
-            <span className={styles.ctaLabel}>Direct Line</span>
-            <h3 className={styles.formTitle}>Skontaktuj sie z nami</h3>
+            <span className={styles.ctaLabel}>Szybki kontakt</span>
+            <h3 className={styles.formTitle}>Skontaktuj się z nami</h3>
             <p className={styles.infoText}>
-              Zrobmy dla Twojego auta cos, co bedzie widac od pierwszego
-              spojrzenia. Napisz do nas i ustalmy najlepszy wariant uslugi.
+              Zróbmy dla Twojego auta coś, co będzie widać od pierwszego
+              spojrzenia. Napisz do nas i ustalmy najlepszy wariant usługi.
             </p>
             <div className={styles.ctaActions}>
               <Link className={styles.ctaButton} to="/contact">
-                Przejdz do kontaktu
+                Przejdź do kontaktu
               </Link>
               <a className={styles.ctaGhost} href="tel:+48609770890">
                 +48 609 770 890

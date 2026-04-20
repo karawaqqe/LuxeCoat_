@@ -1,7 +1,7 @@
 .page {
   padding: 120px 20px 72px;
   background:
-    radial-gradient(circle at top left, rgba(212, 175, 55, 0.08), transparent 26%),
+    radial-gradient(circle at top left, rgba(155, 155, 155, 0.09), transparent 26%),
     linear-gradient(180deg, #121212 0%, #0b0b0b 100%);
   color: #f4f4f4;
 }
@@ -111,8 +111,30 @@
 }
 
 .secondaryButton {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   border: 1px solid rgba(212, 175, 55, 0.3);
   color: #f0d47a;
+}
+
+.secondaryButton::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: #d4af37;
+  clip-path: circle(0% at 50% 100%);
+  transition: clip-path 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
+}
+
+.secondaryButton:hover {
+  color: #050505;
+  border-color: #d4af37;
+}
+
+.secondaryButton:hover::before {
+  clip-path: circle(140% at 50% 100%);
 }
 
 .comparison {
@@ -124,6 +146,15 @@
 
 .comparisonCard {
   padding: 26px;
+}
+
+.comparisonCard:nth-child(1) {
+  clip-path: polygon(0 0, 94% 0, 100% 18%, 100% 100%, 0 100%);
+}
+
+.comparisonCard:nth-child(2) {
+  clip-path: polygon(7% 0, 100% 0, 100% 100%, 0 100%, 0 18%);
+  transform: translateY(18px);
 }
 
 .label {
@@ -151,6 +182,7 @@
 
 .panel {
   padding: 28px;
+  clip-path: polygon(0 0, 92% 0, 100% 18%, 100% 100%, 0 100%);
 }
 
 .panel h2 {
@@ -171,6 +203,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   padding: 12px;
+  clip-path: polygon(6% 0, 100% 0, 100% 84%, 94% 100%, 0 100%, 0 12%);
 }
 
 @media (max-width: 900px) {
@@ -198,5 +231,14 @@
 
   .gallery {
     grid-template-columns: 1fr;
+    clip-path: none;
+  }
+
+  .comparisonCard,
+  .comparisonCard:nth-child(1),
+  .comparisonCard:nth-child(2),
+  .panel {
+    clip-path: none;
+    transform: none;
   }
 }

@@ -3,8 +3,12 @@
   overflow: hidden;
   padding: 130px 20px 84px;
   background:
-    linear-gradient(180deg, rgba(212, 175, 55, 0.05) 0%, transparent 18%),
+    linear-gradient(rgba(255, 255, 255, 0.024) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px),
+    radial-gradient(circle at 82% 16%, rgba(155, 155, 155, 0.11), transparent 24%),
+    linear-gradient(180deg, rgba(155, 155, 155, 0.06) 0%, transparent 18%),
     #0a0a0c;
+  background-size: 54px 54px, 54px 54px, auto, auto;
 }
 
 .gallery__line {
@@ -101,6 +105,9 @@
 }
 
 .moreBtn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   display: block;
   margin: 46px auto 0;
   padding: 14px 30px;
@@ -110,11 +117,25 @@
   font-weight: 700;
   cursor: pointer;
   transition: 0.3s ease;
+  z-index: 1;
+}
+
+.moreBtn::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: #d4af37;
+  clip-path: circle(0% at 50% 100%);
+  transition: clip-path 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
 }
 
 .moreBtn:hover {
-  background: #d4af37;
   color: #050505;
+}
+
+.moreBtn:hover::before {
+  clip-path: circle(140% at 50% 100%);
 }
 
 .modal {

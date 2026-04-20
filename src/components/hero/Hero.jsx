@@ -15,13 +15,12 @@ const Hero = () => {
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
-  const fullText = `LuxeCoat to studio detailingu premium we Wroclawiu. Specjalizujemy sie w korekcie lakieru, powlokach ceramicznych, detailingu oraz aplikacji folii ochronnych PPF. Pracujemy z mysla o efekcie koncowym, trwalosci i estetyce, ktora od razu robi wrazenie.`;
+  const fullText = `LuxeCoat to studio detailingu premium we Wrocławiu. Specjalizujemy się w korekcie lakieru, powłokach ceramicznych, detailingu oraz aplikacji folii ochronnych PPF. Pracujemy z myślą o efekcie końcowym, trwałości i estetyce, która od razu robi wrażenie.`;
 
   const shortText = `${fullText.slice(0, 170)}...`;
 
   return (
     <section className={style.hero}>
-      {/* VIDEO BACKGROUND */}
       <video
         className={style.hero__video}
         autoPlay
@@ -56,7 +55,7 @@ const Hero = () => {
 
           <div className={style.hero__actions}>
             <Link to="/uslugi" className={style.hero__buttonPrimary}>
-              Zobacz uslugi
+              Zobacz usługi
             </Link>
 
             <a href="tel:+48609770890" className={style.hero__buttonGhost}>
@@ -67,10 +66,10 @@ const Hero = () => {
 
         <div className={style.hero__right}>
           <div className={style.hero__card}>
-            <span className={style.hero__cardLabel}>Signature Finish</span>
+            <span className={style.hero__cardLabel}>Wykończenie premium</span>
             <p>
               Ostre formy, ciemny klimat i premium detailing.
-              Tak ma wygladac pierwsze wrazenie.
+              Tak ma wyglądać pierwsze wrażenie.
             </p>
           </div>
 
@@ -82,7 +81,7 @@ const Hero = () => {
 
             <div>
               <strong>Ceramika</strong>
-              <span>Polysk i ochrona</span>
+              <span>Połysk i ochrona</span>
             </div>
 
             <div>

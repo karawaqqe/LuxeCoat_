@@ -3,7 +3,7 @@
   overflow: hidden;
   padding: 120px 20px 72px;
   background:
-    radial-gradient(circle at top center, rgba(212, 175, 55, 0.14), transparent 24%),
+    radial-gradient(circle at top center, rgba(155, 155, 155, 0.15), transparent 24%),
     #0f0f10;
   color: #f3f3f3;
 }
@@ -119,8 +119,30 @@
 }
 
 .secondaryButton {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   border: 1px solid rgba(212, 175, 55, 0.28);
   color: #f0d47a;
+}
+
+.secondaryButton::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: #d4af37;
+  clip-path: circle(0% at 50% 100%);
+  transition: clip-path 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
+}
+
+.secondaryButton:hover {
+  color: #050505;
+  border-color: #d4af37;
+}
+
+.secondaryButton:hover::before {
+  clip-path: circle(140% at 50% 100%);
 }
 
 .specGrid {
@@ -132,6 +154,19 @@
 
 .specCard {
   padding: 24px 18px;
+}
+
+.specCard:nth-child(1) {
+  clip-path: polygon(0 0, 92% 0, 100% 22%, 100% 100%, 0 100%);
+}
+
+.specCard:nth-child(2) {
+  clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%, 0 18%);
+  transform: translateY(14px);
+}
+
+.specCard:nth-child(3) {
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 92% 100%, 0 100%);
 }
 
 .dot {
@@ -153,6 +188,7 @@
 .textPanel {
   padding: 28px;
   margin-bottom: 16px;
+  clip-path: polygon(0 0, 96% 0, 100% 12%, 100% 100%, 0 100%);
 }
 
 .textPanel h2 {
@@ -166,6 +202,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   padding: 12px;
+  clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%, 0 13%);
 }
 
 @media (max-width: 900px) {
@@ -190,5 +227,15 @@
 
   .galleryRow {
     grid-template-columns: 1fr;
+    clip-path: none;
+  }
+
+  .specCard,
+  .specCard:nth-child(1),
+  .specCard:nth-child(2),
+  .specCard:nth-child(3),
+  .textPanel {
+    clip-path: none;
+    transform: none;
   }
 }

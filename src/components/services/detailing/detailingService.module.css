@@ -3,7 +3,7 @@
   overflow: hidden;
   padding: 120px 20px 72px;
   background:
-    linear-gradient(180deg, rgba(212, 175, 55, 0.04) 0%, transparent 18%),
+    linear-gradient(180deg, rgba(155, 155, 155, 0.05) 0%, transparent 18%),
     #0d0d0f;
   color: #f4f4f4;
 }
@@ -53,6 +53,7 @@
 
 .heroCopy {
   padding: 34px;
+  clip-path: polygon(0 0, 94% 0, 100% 14%, 100% 100%, 0 100%);
 }
 
 .kicker {
@@ -98,6 +99,7 @@
 .heroImage {
   min-height: 420px;
   overflow: hidden;
+  clip-path: polygon(7% 0, 100% 0, 100% 100%, 0 100%, 0 14%);
 }
 
 .heroImage img,
@@ -116,6 +118,7 @@
 
 .checklistCard {
   padding: 28px;
+  clip-path: polygon(0 0, 92% 0, 100% 18%, 100% 100%, 0 100%);
 }
 
 .checklistCard h2 {
@@ -152,8 +155,30 @@
 }
 
 .secondaryButton {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   border: 1px solid rgba(212, 175, 55, 0.28);
   color: #f0d47a;
+}
+
+.secondaryButton::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  background: #d4af37;
+  clip-path: circle(0% at 50% 100%);
+  transition: clip-path 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.secondaryButton:hover {
+  color: #050505;
+  border-color: #d4af37;
+}
+
+.secondaryButton:hover::before {
+  clip-path: circle(140% at 50% 100%);
 }
 
 .galleryColumn {
@@ -161,6 +186,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
   padding: 12px;
+  clip-path: polygon(6% 0, 100% 0, 100% 84%, 94% 100%, 0 100%, 0 12%);
 }
 
 @media (max-width: 900px) {
@@ -186,5 +212,12 @@
 
   .galleryColumn {
     grid-template-columns: 1fr;
+  }
+
+  .galleryColumn,
+  .heroCopy,
+  .heroImage,
+  .checklistCard {
+    clip-path: none;
   }
 }

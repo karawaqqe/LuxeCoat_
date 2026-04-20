@@ -17,7 +17,7 @@ const Footer = () => {
           <span className={style.footer__kicker}>LuxeCoat Studio</span>
           <h2 className={style.footer__logo}>LuxeCoat</h2>
           <p className={style.footer__desc}>
-            Premium detailing studio. Ochrona, estetyka i efekt, ktory widac od
+            Premium detailing studio. Ochrona, estetyka i efekt, który widać od
             pierwszego spojrzenia.
           </p>
         </div>
@@ -26,10 +26,10 @@ const Footer = () => {
           <div className={style.footer__group}>
             <span className={style.footer__label}>Nawigacja</span>
             <div className={style.footer__links}>
-              <Link to="/">Strona glowna</Link>
+              <Link to="/">Strona główna</Link>
               <Link to="/gallery">Galeria</Link>
               <Link to="/review">Opinie</Link>
-              <Link to="/uslugi">Uslugi</Link>
+              <Link to="/uslugi">Usługi</Link>
               <Link to="/contact">Kontakt</Link>
             </div>
           </div>

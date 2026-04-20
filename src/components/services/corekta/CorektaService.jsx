@@ -6,9 +6,9 @@ import detailImageOne from "../../../img/gallery/yyyyy.jpg";
 import detailImageTwo from "../../../img/gallery/yyyyyyyy.jpg";
 
 const points = [
-  "Usuniecie swirl marks i drobnych rys",
-  "Wydobycie glebi i odbicia lakieru",
-  "Przygotowanie powierzchni pod dalsza ochrone",
+  "Usunięcie swirl marks i drobnych rys",
+  "Wydobycie głębi i odbicia lakieru",
+  "Przygotowanie powierzchni pod dalszą ochronę",
 ];
 
 export default function CorektaService() {
@@ -18,23 +18,23 @@ export default function CorektaService() {
       <div className={styles.container}>
         <div className={styles.hero}>
           <div className={styles.heroMedia}>
-            <img src={heroImage} alt="Corekta lakieru" />
+            <img src={heroImage} alt="Korekta lakieru" decoding="async" />
           </div>
 
           <div className={styles.heroContent}>
-            <span className={styles.kicker}>Paint Reset</span>
-            <h1 className={styles.title}>Corekta Lakieru</h1>
+            <span className={styles.kicker}>Reset lakieru</span>
+            <h1 className={styles.title}>Korekta lakieru</h1>
             <p className={styles.description}>
-              To jedna z najbardziej efektownych uslug w detailingu. Corekta
-              lakieru przywraca czystosc odbicia, mocniejszy polysk i wyglad,
-              ktory od razu robi roznice.
+              To jedna z najbardziej efektownych usług w detailingu. Korekta
+              lakieru przywraca czystość odbicia, mocniejszy połysk i wygląd,
+              który od razu robi różnicę.
             </p>
             <div className={styles.actions}>
               <Link to="/contact" className={styles.primaryButton}>
-                Zapytaj o wycene
+                Zapytaj o wycenę
               </Link>
               <Link to="/uslugi" className={styles.secondaryButton}>
-                Wroc do uslug
+                Wróć do usług
               </Link>
             </div>
           </div>
@@ -44,16 +44,16 @@ export default function CorektaService() {
           <div className={styles.comparisonCard}>
             <span className={styles.label}>Przed</span>
             <p>
-              Matowa powierzchnia, slady po myciu, mniejsza glebia koloru i
-              brak czystego odbicia swiatla.
+              Matowa powierzchnia, ślady po myciu, mniejsza głębia koloru i
+              brak czystego odbicia światła.
             </p>
           </div>
 
           <div className={styles.comparisonCard}>
             <span className={styles.label}>Po</span>
             <p>
-              Wyrazniejszy polysk, gladsza powierzchnia i lakier, ktory wyglada
-              swiezo, czysto i premium.
+              Wyraźniejszy połysk, gładsza powierzchnia i lakier, który wygląda
+              świeżo, czysto i premium.
             </p>
           </div>
         </div>
@@ -69,8 +69,8 @@ export default function CorektaService() {
           </div>
 
           <div className={styles.gallery}>
-            <img src={detailImageOne} alt="Corekta detail 1" />
-            <img src={detailImageTwo} alt="Corekta detail 2" />
+            <img src={detailImageOne} alt="Korekta lakieru detail 1" loading="lazy" decoding="async" />
+            <img src={detailImageTwo} alt="Korekta lakieru detail 2" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>

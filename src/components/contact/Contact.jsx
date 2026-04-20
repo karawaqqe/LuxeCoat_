@@ -10,10 +10,12 @@ export default function Contact() {
     name: "",
     email: "",
     message: "",
+    company: "",
   });
 
   const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
+  const [lastSendTime, setLastSendTime] = useState(0);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,13 +24,52 @@ export default function Contact() {
       ...prev,
       [name]: value,
     }));
+
+    if (status) {
+      setStatus("");
+    }
+  };
+
+  const isValidEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
   const sendEmail = async (e) => {
     e.preventDefault();
 
-    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
-      setStatus("error");
+    if (loading) return;
+
+    const trimmedName = form.name.trim();
+    const trimmedEmail = form.email.trim();
+    const trimmedMessage = form.message.trim();
+    const now = Date.now();
+
+    if (form.company) {
+      return;
+    }
+
+    if (now - lastSendTime < 15000) {
+      setStatus("too_fast");
+      return;
+    }
+
+    if (!trimmedName || !trimmedEmail || !trimmedMessage) {
+      setStatus("empty");
+      return;
+    }
+
+    if (trimmedName.length < 2) {
+      setStatus("name_error");
+      return;
+    }
+
+    if (!isValidEmail(trimmedEmail)) {
+      setStatus("email_error");
+      return;
+    }
+
+    if (trimmedMessage.length < 10) {
+      setStatus("message_error");
       return;
     }
 
@@ -37,21 +78,24 @@ export default function Contact() {
 
     try {
       await emailjs.send(
-        "service_okr5znm", // <- сюда свой service_id
-        "template_kgu12j5", // <- сюда свой template_id
+        "service_okr5znm",
+        "template_kgu12j5",
         {
-          name: form.name,
-          email: form.email,
-          message: form.message,
+          name: trimmedName,
+          email: trimmedEmail,
+          message: trimmedMessage,
         },
-        "mhn1VnBY0AFhQMUES" // <- сюда свой public_key
+        "mhn1VnBY0AFhQMUES"
       );
 
+      setLastSendTime(Date.now());
       setStatus("success");
+
       setForm({
         name: "",
         email: "",
         message: "",
+        company: "",
       });
     } catch (error) {
       console.error("EmailJS error:", error);
@@ -68,11 +112,11 @@ export default function Contact() {
       <div className={style.container}>
         <div className={style.hero}>
           <span className={style.kicker}>Direct Contact</span>
-          <h2 className={style.title}>Skontaktuj sie z nami</h2>
+          <h2 className={style.title}>Skontaktuj się z nami</h2>
           <p className={style.description}>
             Zapraszamy do kontaktu telefonicznego, mailowego lub odwiedzenia
-            naszego studia. Pomozemy dobrac usluge, omowic termin i przygotowac
-            wstepna wycene.
+            naszego studia. Pomożemy dobrać usługę, omówić termin i przygotować
+            wstępną wycenę.
           </p>
         </div>
 
@@ -80,7 +124,7 @@ export default function Contact() {
           <div className={style.infoBlock}>
             <h3 className={style.infoTitle}>Adres</h3>
             <p className={style.infoText}>
-              ul. Kowalska 12, 50-001 Wroclaw, Polska
+              ul. Kowalska 12, 50-001 Wrocław, Polska
             </p>
             <a
               href="https://maps.app.goo.gl/3bnXW45MvXDSaevj8?g_st=ic"
@@ -126,36 +170,49 @@ export default function Contact() {
           </div>
 
           <div className={style.formSection}>
-            <h3 className={style.formTitle}>Wyslij do nas wiadomosc</h3>
+            <h3 className={style.formTitle}>Wyślij do nas wiadomość</h3>
 
             <form className={style.contactForm} onSubmit={sendEmail}>
               <input
                 type="text"
+                name="company"
+                value={form.company}
+                onChange={handleChange}
+                autoComplete="off"
+                tabIndex="-1"
+                className={style.honeypot}
+              />
+
+              <input
+                type="text"
                 name="name"
-                placeholder="Twoje imie"
+                placeholder="Twoje imię"
                 className={style.contactInput}
                 value={form.name}
                 onChange={handleChange}
                 required
+                maxLength={100}
               />
 
               <input
                 type="email"
                 name="email"
-                placeholder="Twoj email"
+                placeholder="Twój email"
                 className={style.contactInput}
                 value={form.email}
                 onChange={handleChange}
                 required
+                maxLength={120}
               />
 
               <textarea
                 name="message"
-                placeholder="Twoja wiadomosc"
+                placeholder="Twoja wiadomość"
                 className={style.contactTextarea}
                 value={form.message}
                 onChange={handleChange}
                 required
+                maxLength={2000}
               />
 
               <button
@@ -163,16 +220,48 @@ export default function Contact() {
                 className={style.submitBtn}
                 disabled={loading}
               >
-                {loading ? "Wysylanie..." : "Wyslij"}
+                {loading ? "Wysyłanie..." : "Wyślij"}
               </button>
 
               {status === "success" && (
-                <p className={style.successMessage}>Wiadomosc zostala wyslana ✅</p>
+                <p className={style.successMessage}>
+                  Wiadomość została wysłana.
+                </p>
+              )}
+
+              {status === "empty" && (
+                <p className={style.errorMessage}>
+                  Uzupełnij wszystkie pola.
+                </p>
+              )}
+
+              {status === "name_error" && (
+                <p className={style.errorMessage}>
+                  Imię musi mieć przynajmniej 2 znaki.
+                </p>
+              )}
+
+              {status === "email_error" && (
+                <p className={style.errorMessage}>
+                  Wpisz poprawny adres email.
+                </p>
+              )}
+
+              {status === "message_error" && (
+                <p className={style.errorMessage}>
+                  Wiadomość musi mieć przynajmniej 10 znaków.
+                </p>
+              )}
+
+              {status === "too_fast" && (
+                <p className={style.errorMessage}>
+                  Poczekaj chwilę przed kolejną wiadomością.
+                </p>
               )}
 
               {status === "error" && (
                 <p className={style.errorMessage}>
-                  Wystapil blad. Sprobuj ponownie ❌
+                  Wystąpił błąd. Spróbuj ponownie.
                 </p>
               )}
             </form>
@@ -184,7 +273,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className={style.social__item}
               >
-                <img src={instagram} alt="instagram" />
+                <img src={instagram} alt="instagram" loading="lazy" decoding="async" />
               </a>
               <a
                 href="https://www.tiktok.com/@matsafei_vlad"
@@ -192,7 +281,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className={style.social__item}
               >
-                <img src={tiktok} alt="tiktok" />
+                <img src={tiktok} alt="tiktok" loading="lazy" decoding="async" />
               </a>
               <a
                 href="https://www.facebook.com/share/1L1hX1ppcp/?mibextid=wwXIfr"
@@ -200,7 +289,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className={style.social__item}
               >
-                <img src={facebook} alt="facebook" />
+                <img src={facebook} alt="facebook" loading="lazy" decoding="async" />
               </a>
             </div>
           </div>

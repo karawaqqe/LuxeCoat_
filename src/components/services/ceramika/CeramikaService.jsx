@@ -1,16 +1,14 @@
 import { Link } from "react-router-dom";
 import styles from "./ceramikaService.module.css";
 
-
 import heroImage from "../../../img/gall/ooooo.jpg";
 import detailImageOne from "../../../img/gallery/yyyyy.jpg";
 import detailImageTwo from "../../../img/gallery/yyyyyy.jpg";
 
-
 const specs = [
-  "Hydrofobowosc i latwiejsza pielegnacja",
-  "Mocniejszy polysk i szklisty efekt",
-  "Dodatkowa ochrona na co dzien",
+  "Hydrofobowość i łatwiejsza pielęgnacja",
+  "Mocniejszy połysk i szklisty efekt",
+  "Dodatkowa ochrona na co dzień",
 ];
 
 export default function CeramikaService() {
@@ -20,27 +18,27 @@ export default function CeramikaService() {
       <div className={styles.gridBg}></div>
       <div className={styles.container}>
         <div className={styles.hero}>
-          <span className={styles.kicker}>Gloss Layer</span>
+          <span className={styles.kicker}>Warstwa połysku</span>
           <h1 className={styles.title}>Ceramika</h1>
           <p className={styles.description}>
-            Ceramika to propozycja dla klientow, ktorzy oczekuja czystego,
-            szklistego efektu i latwiejszej pielegnacji auta po wykonanej
-            usludze.
+            Ceramika to propozycja dla klientów, którzy oczekują czystego,
+            szklistego efektu i łatwiejszej pielęgnacji auta po wykonanej
+            usłudze.
           </p>
         </div>
 
         <div className={styles.layout}>
           <div className={styles.leftColumn}>
             <div className={styles.heroMedia}>
-              <img src={heroImage} alt="Ceramika" />
+              <img src={heroImage} alt="Ceramika" decoding="async" />
             </div>
 
             <div className={styles.actionBox}>
               <Link to="/contact" className={styles.primaryButton}>
-                Umow konsultacje
+                Umów konsultację
               </Link>
               <Link to="/uslugi" className={styles.secondaryButton}>
-                Wroc do uslug
+                Wróć do usług
               </Link>
             </div>
           </div>
@@ -49,29 +47,28 @@ export default function CeramikaService() {
             <div className={styles.specGrid}>
               {specs.map((item) => (
                 <div key={item} className={styles.specCard}>
-                  {/* <span className={styles.dot}></span> */}
                   <p>{item}</p>
                 </div>
               ))}
             </div>
 
             <div className={styles.textPanel}>
-              <h2>Kiedy warto wybrac ceramike</h2>
+              <h2>Kiedy warto wybrać ceramikę</h2>
               <p>
-                To usluga dla osob, ktore chca zachowac efekt wizualny na
-                dluzej i jednoczesnie ulatwic sobie codzienne utrzymanie auta w
+                To usługa dla osób, które chcą zachować efekt wizualny na
+                dłużej i jednocześnie ułatwić sobie codzienne utrzymanie auta w
                 dobrej kondycji.
               </p>
               <p>
-                Ceramika bardzo dobrze sprawdza sie jako finalny etap po
-                korekcie lakieru, ale moze rowniez stanowic samodzielne
+                Ceramika bardzo dobrze sprawdza się jako finalny etap po
+                korekcie lakieru, ale może również stanowić samodzielne
                 zabezpieczenie auta.
               </p>
             </div>
 
             <div className={styles.galleryRow}>
-              <img src={detailImageOne} alt="Ceramika detail 1" />
-              <img src={detailImageTwo} alt="Ceramika detail 2" />
+              <img src={detailImageOne} alt="Ceramika detail 1" loading="lazy" decoding="async" />
+              <img src={detailImageTwo} alt="Ceramika detail 2" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>

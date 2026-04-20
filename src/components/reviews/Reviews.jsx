@@ -45,8 +45,8 @@ const Reviews = () => {
 
       <div className={style.reviews__head}>
         <div>
-          <span className={style.reviews__kicker}>Client Voice</span>
-          <h2 className={style.reviews__title}>Recenzje klientow</h2>
+          <span className={style.reviews__kicker}>Głos klientów</span>
+          <h2 className={style.reviews__title}>Recenzje klientów</h2>
         </div>
 
         <p className={style.reviews__intro}>
@@ -57,7 +57,7 @@ const Reviews = () => {
 
       <div className={style.reviews__shell}>
         <button className={style.reviews__arrowLeft} onClick={prevSlide}>
-          <img src={arrowLeft} alt="prev" />
+          <img src={arrowLeft} alt="prev" loading="lazy" decoding="async" />
         </button>
 
         <div
@@ -95,9 +95,13 @@ const Reviews = () => {
                       >
                         <div className={style.reviews__cardTop}>
                           <div className={style.reviews__stars}>
-                            {"*".repeat(review.rating)}
+                            {Array.from({ length: review.rating }).map((_, starIndex) => (
+                              <svg key={starIndex} aria-hidden="true">
+                                <use href="#icon-star-full" />
+                              </svg>
+                            ))}
                           </div>
-                          <span className={style.reviews__badge}>Verified</span>
+                          <span className={style.reviews__badge}>Zweryfikowana</span>
                         </div>
                         <p className={style.reviews__text}>{review.text}</p>
                         <p className={style.reviews__author}>{review.name}</p>
@@ -111,7 +115,7 @@ const Reviews = () => {
         </div>
 
         <button className={style.reviews__arrowRight} onClick={nextSlide}>
-          <img src={arrowRight} alt="next" />
+          <img src={arrowRight} alt="next" loading="lazy" decoding="async" />
         </button>
       </div>
 
@@ -129,7 +133,7 @@ const Reviews = () => {
         </div>
 
         <Link to="/review" className={style.reviews__button}>
-          Pokaz wiecej
+          Pokaż więcej
         </Link>
       </div>
     </section>

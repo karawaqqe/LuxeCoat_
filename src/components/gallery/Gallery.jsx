@@ -54,8 +54,9 @@ const Gallery = () => {
 
   const handleTouchEnd = () => {
     const diff = startY.current - endY.current;
-    if (diff > 50) setIndex((prev) => (prev + 1) % images.length);
-    else if (diff < -50) {
+    if (diff > 50) {
+      setIndex((prev) => (prev + 1) % images.length);
+    } else if (diff < -50) {
       setIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
     }
   };
@@ -68,11 +69,11 @@ const Gallery = () => {
       <div className={style.gallery__line}></div>
       <div className={style.gallery__container}>
         <div className={style.gallery__head}>
-          <span className={style.gallery__kicker}>Showcase</span>
+          <span className={style.gallery__kicker}>Realizacje</span>
           <h2 className={style.gallery__title}>Nasza praca</h2>
           <p className={style.gallery__intro}>
-            Zachowalem klimat Twojej sekcji, ale podnioslem ja wizualnie pod
-            nowy styl strony: ciemniej, bardziej premium i z lagodniejszym
+            Zachowaliśmy klimat tej sekcji, ale podnieśliśmy ją wizualnie pod
+            nowy styl strony: ciemniej, bardziej premium i z łagodniejszym
             pojawianiem.
           </p>
         </div>
@@ -99,7 +100,12 @@ const Gallery = () => {
                 key={i}
                 onClick={() => setFullscreen(img)}
               >
-                <img src={img} alt={`gallery ${i}`} />
+                <img
+                  src={img}
+                  alt={`galeria ${i + 1}`}
+                  loading={i === index ? "eager" : "lazy"}
+                  decoding="async"
+                />
               </div>
             );
           })}
@@ -118,7 +124,7 @@ const Gallery = () => {
           </div>
 
           <Link to="/gallery" className={style.gallery__button}>
-            Pokaz wiecej
+            Pokaż więcej
           </Link>
         </div>
       </div>
@@ -129,7 +135,7 @@ const Gallery = () => {
           onClick={() => setFullscreen(null)}
         >
           <span className={style.gallery__close}>+</span>
-          <img src={fullscreen} alt="fullscreen" />
+          <img src={fullscreen} alt="podgląd galerii" decoding="async" />
         </div>
       )}
     </section>

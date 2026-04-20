@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion as Motion, AnimatePresence } from "framer-motion";
 import style from "./gall.module.css";
 import blue from "../../img/gall/blue.jpg";
 import j from "../../img/gall/j.jpg";
@@ -34,21 +34,18 @@ const images = [
 export default function Gallery() {
   const [index, setIndex] = useState(null);
   const [loaded, setLoaded] = useState({});
-  const [visible, setVisible] = useState(8);
-  const [initial, setInitial] = useState(8);
-
-  useEffect(() => {
-    if (window.innerWidth < 768) {
-      setVisible(6);
-      setInitial(6);
-    }
-  }, []);
+  const [initial] = useState(() => (
+    typeof window !== "undefined" && window.innerWidth < 768 ? 6 : 8
+  ));
+  const [visible, setVisible] = useState(initial);
 
   useEffect(() => {
     const handleKey = (e) => {
       if (index === null) return;
       if (e.key === "ArrowRight") setIndex((i) => (i + 1) % images.length);
-      if (e.key === "ArrowLeft") setIndex((i) => (i - 1 + images.length) % images.length);
+      if (e.key === "ArrowLeft") {
+        setIndex((i) => (i - 1 + images.length) % images.length);
+      }
       if (e.key === "Escape") setIndex(null);
     };
 
@@ -95,24 +92,30 @@ export default function Gallery() {
         <span className={style.kicker}>Full Showcase</span>
         <h2 className={style.title}>Galeria</h2>
         <p className={style.intro}>
-          Osobna strona galerii dostala bardziej premium uklad: ciemne tlo,
-          mocniejsze spacingi, lagodniejsze wejscia i modal, ktory wyglada jak
-          czesc systemu, a nie osobny widget.
+          Osobna strona galerii dostała bardziej premium układ: ciemne tło,
+          mocniejsze spacingi, łagodniejsze wejścia i modal, który wygląda jak
+          część systemu, a nie osobny widget.
         </p>
       </div>
 
-      <motion.div
+      <Motion.div
         className={style.grid}
         variants={container}
         initial="hidden"
         animate="show"
       >
         {images.slice(0, visible).map((img, i) => (
-          <motion.div
+          <Motion.div
             key={i}
             variants={item}
             className={`${style.card} ${
-              i % 4 === 0 ? style.variantA : i % 4 === 1 ? style.variantB : i % 4 === 2 ? style.variantC : style.variantD
+              i % 4 === 0
+                ? style.variantA
+                : i % 4 === 1
+                  ? style.variantB
+                  : i % 4 === 2
+                    ? style.variantC
+                    : style.variantD
             }`}
             onClick={() => setIndex(i)}
             whileHover={{ y: -8 }}
@@ -121,30 +124,32 @@ export default function Gallery() {
               src={img}
               alt=""
               loading="lazy"
+              decoding="async"
               onLoad={() => setLoaded((prev) => ({ ...prev, [i]: true }))}
               className={`${style.image} ${loaded[i] ? style.loaded : ""}`}
             />
-          </motion.div>
+          </Motion.div>
         ))}
-      </motion.div>
+      </Motion.div>
 
       <button className={style.moreBtn} onClick={handleToggle}>
-        {visible >= images.length ? "Ukryj" : "Pokaz wiecej"}
+        {visible >= images.length ? "Ukryj" : "Pokaż więcej"}
       </button>
 
       <AnimatePresence>
         {index !== null && (
-          <motion.div
+          <Motion.div
             className={style.modal}
             onClick={() => setIndex(null)}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <motion.img
+            <Motion.img
               key={index}
               src={images[index]}
               alt=""
+              decoding="async"
               className={style.modalImg}
               initial={{ scale: 0.92, opacity: 0, y: 18 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -153,11 +158,15 @@ export default function Gallery() {
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               onDragEnd={(e, info) => {
-                if (info.offset.x < -100) setIndex((i) => (i + 1) % images.length);
-                if (info.offset.x > 100) setIndex((i) => (i - 1 + images.length) % images.length);
+                if (info.offset.x < -100) {
+                  setIndex((i) => (i + 1) % images.length);
+                }
+                if (info.offset.x > 100) {
+                  setIndex((i) => (i - 1 + images.length) % images.length);
+                }
               }}
             />
-          </motion.div>
+          </Motion.div>
         )}
       </AnimatePresence>
     </section>
