@@ -1,33 +1,11 @@
 import { Link } from "react-router-dom";
 import styles from "./uslugi.module.css";
 
-import l from "../../img/uslugi/l.jpg";
-import ll from "../../img/uslugi/ll.jpg";
+import l from "../../img/slugi/ppf/ppflogo.jpg";
+import ll from "../../img/slugi/corekta/corektalogo.jpg";
 import lll from "../../img/uslugi/lll.jpg";
 
 import k from "../../img/gall/k.jpg";
-import kk from "../../img/gall/kk.jpg";
-import kkkk from "../../img/gall/kkkk.jpg";
-import kkkkk from "../../img/gall/kkkkk.jpg";
-
-
-const featureCards = [
-  {
-    title: "Jak pracujemy",
-    text: "Łączymy precyzję wykonania, bezpieczne procesy i premium kosmetyki, aby każdy etap był dopracowany.",
-    image: kk,
-  },
-  {
-    title: "Dlaczego my",
-    text: "Dbamy o efekt końcowy, detale i spójność wykonania, dzięki czemu auto wygląda świeżo i premium.",
-    image: kkkk,
-  },
-  {
-    title: "Szybki kontakt",
-    text: "Skonsultuj zakres prac i termin realizacji. Odpowiemy szybko i pomożemy dobrać najlepszą usługę.",
-    image: kkkkk,
-  },
-];
 
 const services = [
   {
@@ -62,40 +40,6 @@ const Uslugi = () => {
       <div className={styles.container}>
         <div className={styles.hero}>
           <h1 className={styles.title}>Usługi</h1>
-          <p className={styles.description}>
-            Strona zaprojektowana tak, żeby od razu pokazać charakter marki:
-            ciemno, ostro i premium. Kliknij wybraną usługę, aby przejść na jej
-            osobną stronę.
-          </p>
-        </div>
-
-        <div className={styles.infoGrid}>
-          {featureCards.map((card, index) => (
-            <div
-              key={card.title}
-              className={styles.infoBlock}
-              style={{ animationDelay: `${0.2 + index * 0.2}s` }}
-            >
-              <div className={styles.infoImageWrap}>
-                <img
-                  className={styles.infoImage}
-                  src={card.image}
-                  alt={card.title}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className={styles.infoContent}>
-                <h2 className={styles.infoTitle}>{card.title}</h2>
-                <p className={styles.infoText}>{card.text}</p>
-                {card.title === "Szybki kontakt" ? (
-                  <Link className={styles.inlineLink} to="/contact">
-                    Przejdź do kontaktu
-                  </Link>
-                ) : null}
-              </div>
-            </div>
-          ))}
         </div>
 
         <div className={styles.servicesHeader}>
