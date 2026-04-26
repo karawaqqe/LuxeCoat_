@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import style from "./hero.module.css";
 
-import heroVideo from "../../img/hero/backgrherooo.mp4";
+import heroVideo from "../../img/hero/mainback.mp4";
 
 const Hero = () => {
   const [expanded, setExpanded] = useState(false);

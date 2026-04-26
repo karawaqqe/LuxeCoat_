@@ -16,7 +16,9 @@
   position: absolute;
   inset: 0 0 auto;
   height: 170px;
-  background: linear-gradient(180deg, #0b0b0d 0%, rgba(11, 11, 13, 0.86) 34%, rgba(11, 11, 13, 0) 100%);
+  background:
+    radial-gradient(ellipse 70% 90% at 50% 0%, rgba(8, 8, 8, 0.42), transparent 72%),
+    linear-gradient(180deg, #0b0b0d 0%, rgba(11, 11, 13, 0.82) 28%, rgba(11, 11, 13, 0.22) 72%, rgba(11, 11, 13, 0) 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -25,12 +27,15 @@
   content: "";
   position: absolute;
   inset: auto 0 0;
-  height: 190px;
+  height: 320px;
   background: linear-gradient(
     180deg,
     rgba(11, 11, 13, 0) 0%,
-    rgba(13, 13, 14, 0.28) 58%,
-    #0b0b0d 100%
+    rgba(10, 10, 10, 0.05) 14%,
+    rgba(9, 9, 9, 0.14) 34%,
+    rgba(8, 8, 8, 0.32) 58%,
+    rgba(7, 7, 7, 0.52) 78%,
+    #050505 100%
   );
   pointer-events: none;
   z-index: 0;

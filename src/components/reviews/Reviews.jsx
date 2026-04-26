@@ -12,6 +12,8 @@ const Reviews = () => {
 
   const startX = useRef(0);
   const endX = useRef(0);
+  const startY = useRef(0);
+  const endY = useRef(0);
 
   const reviewsPerPage = 3;
   const totalPages = Math.ceil(reviews.length / reviewsPerPage);
@@ -26,17 +28,26 @@ const Reviews = () => {
 
   const handleTouchStart = (e) => {
     startX.current = e.touches[0].clientX;
+    endX.current = e.touches[0].clientX;
+    startY.current = e.touches[0].clientY;
+    endY.current = e.touches[0].clientY;
   };
 
   const handleTouchMove = (e) => {
     endX.current = e.touches[0].clientX;
+    endY.current = e.touches[0].clientY;
   };
 
   const handleTouchEnd = () => {
-    const diff = startX.current - endX.current;
+    const diffX = startX.current - endX.current;
+    const diffY = startY.current - endY.current;
 
-    if (diff > 50) nextSlide();
-    if (diff < -50) prevSlide();
+    if (Math.abs(diffX) < 55 || Math.abs(diffX) <= Math.abs(diffY)) {
+      return;
+    }
+
+    if (diffX > 0) nextSlide();
+    if (diffX < 0) prevSlide();
   };
 
   return (
