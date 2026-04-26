@@ -130,7 +130,7 @@ export default function CorektaService() {
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
-                </div>
+                </div>  
               </div>
             </div>
           </article>
