@@ -37,7 +37,7 @@ const Footer = () => {
           <div className={style.footer__group}>
             <span className={style.footer__label}>Kontakt</span>
             <div className={style.footer__meta}>
-              <a href="tel:+48609770890">+48 609 770 890</a>
+              <a href="tel:+48507455558">+48 507 455 558</a>
               <a href="mailto:kontakt@luxecoat.pl">kontakt@luxecoat.pl</a>
             </div>
           </div>

@@ -58,8 +58,8 @@ const Hero = () => {
               Zobacz usługi
             </Link>
 
-            <a href="tel:+48609770890" className={style.hero__buttonGhost}>
-              +48 609 770 890
+            <a href="tel:+48507455558" className={style.hero__buttonGhost}>
+              +48 507 455 558
             </a>
           </div>
         </div>

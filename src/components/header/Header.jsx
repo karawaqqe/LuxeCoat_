@@ -82,7 +82,7 @@ const Header = () => {
         </nav>
 
         <div className={style.header__right}>
-          <span className={style.header__phone}>+48 609 770 890</span>
+          <span className={style.header__phone}>+48 507 455 558</span>
         </div>
 
         <div

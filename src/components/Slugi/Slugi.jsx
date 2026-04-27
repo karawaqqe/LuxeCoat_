@@ -85,8 +85,8 @@ const Uslugi = () => {
               <Link className={styles.ctaButton} to="/contact">
                 Przejdź do kontaktu
               </Link>
-              <a className={styles.ctaGhost} href="tel:+48609770890">
-                +48 609 770 890
+              <a className={styles.ctaGhost} href="tel:+48507455558">
+                +48 507 455 558
               </a>
             </div>
           </div>

@@ -29,10 +29,6 @@ const ReviewsDetailed = () => {
       <div className={style.gall__hero}>
         <span className={style.gall__kicker}>All Reviews</span>
         <h2 className={style.gall__title}>Opinie klientów</h2>
-        <p className={style.gall__intro}>
-          Pełna ściana recenzji w bardziej wyrazistej kompozycji. Duże karty,
-          lekkie przesunięcia i mocniejszy efekt premium.
-        </p>
       </div>
 
       <div className={style.gall__cards}>

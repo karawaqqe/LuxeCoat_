@@ -108,39 +108,66 @@ export default function Contact() {
   return (
     <section className={style.contact}>
       <div className={style.bgLine}></div>
+      <div className={style.bgShape}></div>
+      <div className={style.bgShapeSoft}></div>
 
       <div className={style.container}>
-        <div className={style.hero}>
-          <span className={style.kicker}>Direct Contact</span>
-          <h2 className={style.title}>Skontaktuj się z nami</h2>
-          <p className={style.description}>
-            Zapraszamy do kontaktu telefonicznego, mailowego lub odwiedzenia
-            naszego studia. Pomożemy dobrać usługę, omówić termin i przygotować
-            wstępną wycenę.
-          </p>
+        <div className={style.heroShell}>
+          <div className={style.heroMain}>
+            <span className={style.kicker}>Direct Contact</span>
+            <h2 className={style.title}>Skontaktuj się z nami</h2>
+            <p className={style.description}>
+              Zapraszamy do kontaktu telefonicznego, mailowego lub odwiedzenia
+              naszego studia. Pomożemy dobrać usługę, omówić termin i
+              przygotować wstępną wycenę pod Twój samochód.
+            </p>
+
+            <div className={style.quickActions}>
+              <a href="tel:+48507455558" className={style.primaryLink}>
+                +48 507 455 558
+              </a>
+              <a
+                href="mailto:kontakt@luxecoat.pl"
+                className={style.secondaryLink}
+              >
+                kontakt@luxecoat.pl
+              </a>
+            </div>
+          </div>
+
+          <div className={style.heroAside}>
+            <span className={style.asideLabel}>Szybki kontakt</span>
+            <p className={style.asideLead}>
+              Napisz, zadzwoń lub odwiedź studio. Odpowiemy konkretnie i
+              pomożemy dobrać najlepszy wariant usługi.
+            </p>
+
+            <div className={style.asideMeta}>
+              <div>
+                <strong>Wrocław</strong>
+                <span>studio premium auto detailingu i ochrony lakieru</span>
+              </div>
+              <div>
+                <strong>Kontakt i wycena</strong>
+                <span>ustalane indywidualnie pod auto i zakres prac</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className={style.infoGrid}>
           <div className={style.infoBlock}>
             <h3 className={style.infoTitle}>Adres</h3>
             <p className={style.infoText}>
-              ul. Kowalska 12, 50-001 Wrocław, Polska
+              Kwidzyńska 4, Wrocław, Polska
             </p>
-            <a
-              href="https://maps.app.goo.gl/3bnXW45MvXDSaevj8?g_st=ic"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={style.mapLink}
-            >
-              Zobacz na mapie
-            </a>
           </div>
 
           <div className={style.infoBlock}>
             <h3 className={style.infoTitle}>Telefon</h3>
             <p className={style.infoText}>
-              <a href="tel:+48609770890" className={style.phoneLink}>
-                +48 609 770 890
+              <a href="tel:+48507455558" className={style.phoneLink}>
+                +48 507 455 558
               </a>
             </p>
           </div>
@@ -155,22 +182,31 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className={style.layout}>
-          <div className={style.mapWrapper}>
-            <iframe
-              title="LuxeCoat Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2449.4749679705436!2d17.048632515760068!3d51.10242367956152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fcf6e5dbfba17%3A0x21419a36b09a48c4!2sKowalska%2012%2C%2050-001%20Wroc%C5%82aw!5e0!3m2!1spl!2spl!4v1680674156653!5m2!1spl!2spl"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+        <div className={style.stage}>
+          <div className={style.mapPanel}>
+            <div className={style.mapWrapper}>
+              <iframe
+                title="LuxeCoat Location"
+                src="https://maps.google.com/maps?q=Kwidzy%C5%84ska%204%2C%20Wroc%C5%82aw%2C%20Polska&z=15&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
 
           <div className={style.formSection}>
-            <h3 className={style.formTitle}>Wyślij do nas wiadomość</h3>
+            <div className={style.formHead}>
+              <span className={style.sectionTag}>Formularz kontaktowy</span>
+              <h3 className={style.formTitle}>Wyślij do nas wiadomość</h3>
+              <p className={style.formIntro}>
+                Napisz, jaki samochód chcesz oddać do studia i na jakim efekcie
+                Ci zależy. Skontaktujemy się z Tobą najszybciej, jak to możliwe.
+              </p>
+            </div>
 
             <form className={style.contactForm} onSubmit={sendEmail}>
               <input
@@ -265,34 +301,61 @@ export default function Contact() {
                 </p>
               )}
             </form>
-
-            <div className={style.social__icons}>
-              <a
-                href="https://www.instagram.com/luxecoat_premium_auto_studio?igsh=MW15M252NG9iYm83aQ%3D%3D&utm_source=qr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={style.social__item}
-              >
-                <img src={instagram} alt="instagram" loading="lazy" decoding="async" />
-              </a>
-              <a
-                href="https://www.tiktok.com/@matsafei_vlad"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={style.social__item}
-              >
-                <img src={tiktok} alt="tiktok" loading="lazy" decoding="async" />
-              </a>
-              <a
-                href="https://www.facebook.com/share/1L1hX1ppcp/?mibextid=wwXIfr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={style.social__item}
-              >
-                <img src={facebook} alt="facebook" loading="lazy" decoding="async" />
-              </a>
-            </div>
           </div>
+        </div>
+
+        <div className={style.socialSection}>
+          <a
+            href="https://www.instagram.com/luxecoat_premium_auto_studio?igsh=MW15M252NG9iYm83aQ%3D%3D&utm_source=qr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={style.socialCard}
+          >
+            <img
+              src={instagram}
+              alt="instagram"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <strong>Instagram</strong>
+              <span>kulisy realizacji i efekt końcowy</span>
+            </div>
+          </a>
+          <a
+            href="https://www.tiktok.com/@matsafei_vlad"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={style.socialCard}
+          >
+            <img
+              src={tiktok}
+              alt="tiktok"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <strong>TikTok</strong>
+              <span>krótkie materiały i metamorfozy</span>
+            </div>
+          </a>
+          <a
+            href="https://www.facebook.com/share/1L1hX1ppcp/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={style.socialCard}
+          >
+            <img
+              src={facebook}
+              alt="facebook"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <strong>Facebook</strong>
+              <span>aktualności i szybki kontakt</span>
+            </div>
+          </a>
         </div>
       </div>
     </section>

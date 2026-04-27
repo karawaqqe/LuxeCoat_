@@ -91,11 +91,6 @@ export default function Gallery() {
       <div className={style.gallery__hero}>
         <span className={style.kicker}>Full Showcase</span>
         <h2 className={style.title}>Galeria</h2>
-        <p className={style.intro}>
-          Osobna strona galerii dostała bardziej premium układ: ciemne tło,
-          mocniejsze spacingi, łagodniejsze wejścia i modal, który wygląda jak
-          część systemu, a nie osobny widget.
-        </p>
       </div>
 
       <Motion.div
