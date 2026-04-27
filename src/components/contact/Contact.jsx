@@ -187,7 +187,7 @@ export default function Contact() {
             <div className={style.mapWrapper}>
               <iframe
                 title="LuxeCoat Location"
-                src="https://maps.google.com/maps?q=Kwidzy%C5%84ska%204%2C%20Wroc%C5%82aw%2C%20Polska&z=15&output=embed"
+                src="https://maps.google.com/maps?q=51.13056684484797,17.089395560117527&z=18&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -196,6 +196,14 @@ export default function Contact() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
+            <a
+              href="https://maps.app.goo.gl/XkZvqyfzwNQor2ow5?g_st=ic"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={style.mapExternalLink}
+            >
+              LuxeCoat w mapach
+            </a>
           </div>
 
           <div className={style.formSection}>
