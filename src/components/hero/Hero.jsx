@@ -65,13 +65,13 @@ const Hero = () => {
         </div>
 
         <div className={style.hero__right}>
-          <div className={style.hero__card}>
+          {/* <div className={style.hero__card}>
             <span className={style.hero__cardLabel}>Wykończenie premium</span>
             <p>
               Ostre formy, ciemny klimat i premium detailing.
               Tak ma wyglądać pierwsze wrażenie.
             </p>
-          </div>
+          </div> */}
 
           <div className={style.hero__stats}>
             <div>
