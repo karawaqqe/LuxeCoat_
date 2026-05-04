@@ -45,7 +45,7 @@ const sections = [
         </ul>
         <p>
           Dane te są wykorzystywane wyłącznie w celu kontaktu z użytkownikiem
-          lub publikacji opinii (po akceptacji).
+          lub publikacji opinii po akceptacji.
         </p>
       </>
     ),
@@ -64,7 +64,7 @@ const sections = [
     title: "4. Pliki cookies",
     body: (
       <>
-        <p>Strona korzysta z plików cookies (tzw. „ciasteczek”).</p>
+        <p>Strona korzysta z plików cookies, czyli tzw. „ciasteczek”.</p>
         <p>Rodzaje cookies:</p>
         <ul>
           <li>
@@ -84,9 +84,9 @@ const sections = [
             <tbody>
               {cookieRows.map((row) => (
                 <tr key={row.name}>
-                  <td>{row.name}</td>
-                  <td>{row.purpose}</td>
-                  <td>{row.time}</td>
+                  <td data-label="Nazwa">{row.name}</td>
+                  <td data-label="Cel">{row.purpose}</td>
+                  <td data-label="Czas">{row.time}</td>
                 </tr>
               ))}
             </tbody>
