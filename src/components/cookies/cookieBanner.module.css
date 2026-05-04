@@ -1,0 +1,140 @@
+.banner {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 120;
+  width: min(460px, calc(100vw - 28px));
+  padding: 22px 22px 20px;
+  background: rgba(10, 10, 10, 0.96);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.42);
+  clip-path: polygon(0 0, 95% 0, 100% 16%, 100% 100%, 0 100%);
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 38px 38px;
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.content,
+.actions {
+  position: relative;
+  z-index: 1;
+}
+
+.kicker {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 7px 11px;
+  background: rgba(212, 175, 55, 0.08);
+  color: #f0d47a;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.title {
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+  line-height: 1.02;
+  font-family: "Public Sans", sans-serif;
+  background: linear-gradient(90deg, #f1f1f1 0%, #ffd12b 55%, #999999 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text {
+  color: #bdbdbd;
+  line-height: 1.72;
+}
+
+.text a {
+  color: #f0d47a;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.acceptButton,
+.declineButton {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  min-height: 50px;
+  padding: 0 20px;
+  font-weight: 800;
+  font-family: "Public Sans", sans-serif;
+  transition:
+    color 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.acceptButton {
+  color: #f0d47a;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.acceptButton::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  background: #d4af37;
+  clip-path: circle(0% at 50% 100%);
+  transition: clip-path 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.acceptButton:hover {
+  color: #050505;
+  border-color: #d4af37;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(212, 175, 55, 0.28);
+}
+
+.acceptButton:hover::before {
+  clip-path: circle(140% at 50% 100%);
+}
+
+.declineButton {
+  color: #d0d0d0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.declineButton:hover {
+  color: #ffffff;
+  border-color: rgba(212, 175, 55, 0.3);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 640px) {
+  .banner {
+    right: 14px;
+    left: 14px;
+    bottom: 14px;
+    width: auto;
+    clip-path: none;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .acceptButton,
+  .declineButton {
+    width: 100%;
+  }
+}

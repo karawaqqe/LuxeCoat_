@@ -119,6 +119,9 @@
   width: 100%;
   height: 370px;
   margin-bottom: 22px;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .gallery__slider::before {

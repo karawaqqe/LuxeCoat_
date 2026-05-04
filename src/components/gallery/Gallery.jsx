@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
-import style from "./gallery.module.css";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import style from "./gallery.module.css";
 
 import y from "../../img/gallery/y.jpg";
 import yy from "../../img/gallery/yy.jpg";
@@ -19,7 +19,9 @@ const Gallery = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const sectionRef = useRef(null);
+  const startX = useRef(0);
   const startY = useRef(0);
+  const endX = useRef(0);
   const endY = useRef(0);
 
   useEffect(() => {
@@ -33,30 +35,45 @@ const Gallery = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
       },
       { threshold: 0.15 }
     );
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
     return () => observer.disconnect();
   }, []);
 
   const getIndex = (i) => (i + images.length) % images.length;
 
   const handleTouchStart = (e) => {
+    startX.current = e.touches[0].clientX;
     startY.current = e.touches[0].clientY;
+    endX.current = e.touches[0].clientX;
+    endY.current = e.touches[0].clientY;
   };
 
   const handleTouchMove = (e) => {
+    endX.current = e.touches[0].clientX;
     endY.current = e.touches[0].clientY;
   };
 
   const handleTouchEnd = () => {
-    const diff = startY.current - endY.current;
-    if (diff > 50) {
+    const diffX = startX.current - endX.current;
+    const diffY = startY.current - endY.current;
+
+    if (Math.abs(diffX) < 50 || Math.abs(diffX) <= Math.abs(diffY)) {
+      return;
+    }
+
+    if (diffX > 0) {
       setIndex((prev) => (prev + 1) % images.length);
-    } else if (diff < -50) {
+    } else {
       setIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
     }
   };
@@ -87,12 +104,19 @@ const Gallery = () => {
           {images.map((img, i) => {
             let className = style.gallery__slide;
 
-            if (i === index) className += ` ${style.active}`;
-            else if (i === getIndex(index - 1)) className += ` ${style.prev}`;
-            else if (i === getIndex(index + 1)) className += ` ${style.next}`;
-            else if (i === getIndex(index - 2)) className += ` ${style.farPrev}`;
-            else if (i === getIndex(index + 2)) className += ` ${style.farNext}`;
-            else className += ` ${style.hidden}`;
+            if (i === index) {
+              className += ` ${style.active}`;
+            } else if (i === getIndex(index - 1)) {
+              className += ` ${style.prev}`;
+            } else if (i === getIndex(index + 1)) {
+              className += ` ${style.next}`;
+            } else if (i === getIndex(index - 2)) {
+              className += ` ${style.farPrev}`;
+            } else if (i === getIndex(index + 2)) {
+              className += ` ${style.farNext}`;
+            } else {
+              className += ` ${style.hidden}`;
+            }
 
             return (
               <div

@@ -1,5 +1,5 @@
-import style from "./footer.module.css";
 import { Link } from "react-router-dom";
+import style from "./footer.module.css";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -31,6 +31,7 @@ const Footer = () => {
               <Link to="/review">Opinie</Link>
               <Link to="/uslugi">Usługi</Link>
               <Link to="/contact">Kontakt</Link>
+              <Link to="/polityka-prywatnosci">Polityka prywatności</Link>
             </div>
           </div>
 

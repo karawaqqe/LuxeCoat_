@@ -5,7 +5,7 @@ import l from "../../img/slugi/ppf/ppflogo.jpg";
 import ll from "../../img/slugi/corekta/corektalogo.jpg";
 import lll from "../../img/uslugi/lll.jpg";
 
-import k from "../../img/gall/k.jpg";
+import detnew from "../../img/slugi/det/detnew.jpg";
 
 const services = [
   {
@@ -25,7 +25,7 @@ const services = [
   },
   {
     title: "Detailing",
-    image: k,
+    image: detnew,
     to: "/uslugi/detailing",
   },
 ];

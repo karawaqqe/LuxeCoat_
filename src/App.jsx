@@ -1,8 +1,9 @@
 import { lazy, Suspense } from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 
-import Header from "./components/header/Header";
+import CookieBanner from "./components/cookies/CookieBanner";
 import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
 import ScrollToTop from "./components/ScrollToTop";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -14,6 +15,9 @@ const PpfPage = lazy(() => import("./pages/Ppf"));
 const CorektaPage = lazy(() => import("./pages/Corekta"));
 const CeramikaPage = lazy(() => import("./pages/Ceramika"));
 const DetailingPage = lazy(() => import("./pages/Detailing"));
+const PolitykaPrywatnosciPage = lazy(() =>
+  import("./pages/PolitykaPrywatnosci")
+);
 
 function App() {
   return (
@@ -33,10 +37,15 @@ function App() {
           <Route path="/uslugi/corekta-lakieru" element={<CorektaPage />} />
           <Route path="/uslugi/ceramika" element={<CeramikaPage />} />
           <Route path="/uslugi/detailing" element={<DetailingPage />} />
+          <Route
+            path="/polityka-prywatnosci"
+            element={<PolitykaPrywatnosciPage />}
+          />
           <Route path="*" element={<Home />} />
         </Routes>
       </Suspense>
 
+      <CookieBanner />
       <Footer />
     </HashRouter>
   );
