@@ -1,7 +1,7 @@
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import style from "./reviews.module.css";
 import reviews from "../../data/reviews.json";
-import { Link } from "react-router-dom";
 
 import arrowLeft from "../../img/arrow/arrow-left.png";
 import arrowRight from "../../img/arrow/arrow-right.png";
@@ -46,8 +46,13 @@ const Reviews = () => {
       return;
     }
 
-    if (diffX > 0) nextSlide();
-    if (diffX < 0) prevSlide();
+    if (diffX > 0) {
+      nextSlide();
+    }
+
+    if (diffX < 0) {
+      prevSlide();
+    }
   };
 
   return (
@@ -61,8 +66,8 @@ const Reviews = () => {
         </div>
 
         <p className={style.reviews__intro}>
-          Opinie, ktore buduja zaufanie. Zebrane w bardziej editorial formie,
-          zeby sekcja wygladala premium, a nie jak zwykly slider.
+          Prawdziwe opinie klientów, którzy docenili precyzję wykonania, efekt
+          końcowy i jakość zabezpieczenia swojego samochodu.
         </p>
       </div>
 
@@ -106,13 +111,17 @@ const Reviews = () => {
                       >
                         <div className={style.reviews__cardTop}>
                           <div className={style.reviews__stars}>
-                            {Array.from({ length: review.rating }).map((_, starIndex) => (
-                              <svg key={starIndex} aria-hidden="true">
-                                <use href="#icon-star-full" />
-                              </svg>
-                            ))}
+                            {Array.from({ length: review.rating }).map(
+                              (_, starIndex) => (
+                                <svg key={starIndex} aria-hidden="true">
+                                  <use href="#icon-star-full" />
+                                </svg>
+                              )
+                            )}
                           </div>
-                          <span className={style.reviews__badge}>Zweryfikowana</span>
+                          <span className={style.reviews__badge}>
+                            Zweryfikowana
+                          </span>
                         </div>
                         <p className={style.reviews__text}>{review.text}</p>
                         <p className={style.reviews__author}>{review.name}</p>

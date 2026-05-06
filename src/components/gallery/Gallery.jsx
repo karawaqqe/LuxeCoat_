@@ -89,9 +89,8 @@ const Gallery = () => {
           <span className={style.gallery__kicker}>Realizacje</span>
           <h2 className={style.gallery__title}>Nasza praca</h2>
           <p className={style.gallery__intro}>
-            Zachowaliśmy klimat tej sekcji, ale podnieśliśmy ją wizualnie pod
-            nowy styl strony: ciemniej, bardziej premium i z łagodniejszym
-            pojawianiem.
+            Wybrane realizacje pokazujące detale wykończenia, głębię lakieru i
+            efekt końcowy, który widać od pierwszego spojrzenia.
           </p>
         </div>
 
