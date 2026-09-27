@@ -14,7 +14,7 @@ const services = [
     to: "/uslugi/ppf",
   },
   {
-    title: "Corekta Lakieru",
+    title: "Korekta Lakieru",
     image: ll,
     to: "/uslugi/corekta-lakieru",
   },
