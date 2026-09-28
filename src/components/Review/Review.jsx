@@ -70,6 +70,14 @@ const ReviewsDetailed = () => {
         >
           Napisz opinię
         </button>
+
+        <button
+        className={style.gall__all}
+        >
+          <a href="https://www.google.com/maps/place/Luxecoat+%7C+Premium+Auto+Studio/@51.1204831,16.9973754,27m/data=!3m1!1e3!4m8!3m7!1s0x470fe9a5e6f86f13:0x248bae0f11363125!8m2!3d51.1204901!4d16.9975189!9m1!1b1!16s%2Fg%2F11ywn3ncpl?entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D">Pokaż wszystkie</a>
+          
+        </button>
+
       </div>
 
       {isOpen && (

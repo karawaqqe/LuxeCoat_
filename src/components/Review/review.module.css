@@ -51,6 +51,60 @@
   font-size: 0.78rem;
 }
 
+/* .gall__all{
+    position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 14px 28px;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  color: #f0d47a;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+  z-index: 1;
+} */
+
+.gall__all {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 14px 28px;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  color: #f0d47a;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+  z-index: 1;
+}
+
+.gall__all::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: #d4af37;
+  clip-path: circle(0% at 50% 100%);
+  transition: clip-path 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: -1;
+}
+
+.gall__all:hover {
+  color: #050505;
+  border-color: #d4af37;
+  transform: translateY(-3px);
+}
+
+.gall__all:hover::before {
+  clip-path: circle(140% at 50% 100%);
+}
+
+.gall__allWrite {
+  background: transparent;
+  color: #f0d47a;
+}
+
+
 .gall__title {
   margin-bottom: 14px;
   font-size: 3rem;
