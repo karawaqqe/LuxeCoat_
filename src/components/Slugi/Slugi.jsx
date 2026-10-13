@@ -33,8 +33,6 @@ const services = [
 const Uslugi = () => {
   return (
     <section className={styles.uslugi}>
-      <div className={styles.bgGlowOne}></div>
-      <div className={styles.bgGlowTwo}></div>
       <div className={styles.bgLine}></div>
 
       <div className={styles.container}>
