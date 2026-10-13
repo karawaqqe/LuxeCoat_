@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./reviews.module.css";
 import reviews from "../../data/reviews.json";
+import DotField from "../social/DotField";
 
 import arrowLeft from "../../img/arrow/arrow-left.png";
 import arrowRight from "../../img/arrow/arrow-right.png";
@@ -57,6 +58,9 @@ const Reviews = () => {
 
   return (
     <section className={style.reviews}>
+      <div className={style.reviews__background}>
+        <DotField dotSpacing={32} maxDots={1200} />
+      </div>
       <div className={style.reviews__line}></div>
 
       <div className={style.reviews__head}>

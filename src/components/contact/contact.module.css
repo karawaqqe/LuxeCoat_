@@ -2,25 +2,8 @@
   position: relative;
   overflow: hidden;
   padding: 126px 20px 92px;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
-    linear-gradient(180deg, #0d0d0f 0%, #0b0b0d 100%);
-  background-size: 54px 54px, 54px 54px, auto, auto;
+  background: #050505;
   color: #d4af37;
-}
-
-.contact::after {
-  content: "";
-  position: absolute;
-  right: 7%;
-  top: 15%;
-  width: 220px;
-  height: 220px;
-  border: 1px solid rgba(165, 165, 165, 0.08);
-  clip-path: polygon(24% 0, 100% 0, 100% 76%, 76% 100%, 0 100%, 0 24%);
-  transform: rotate(8deg);
-  pointer-events: none;
 }
 
 .bgLine {
@@ -30,30 +13,6 @@
   width: 1px;
   height: 100%;
   background: linear-gradient(180deg, transparent, rgba(212, 175, 55, 0.32), transparent);
-}
-
-.bgShape,
-.bgShapeSoft {
-  position: absolute;
-  pointer-events: none;
-}
-
-.bgShape {
-  left: 3%;
-  bottom: 11%;
-  width: 320px;
-  height: 320px;
-  border: 1px solid rgba(140, 140, 140, 0.08);
-  clip-path: polygon(0 18%, 18% 0, 100% 0, 100% 82%, 82% 100%, 0 100%);
-}
-
-.bgShapeSoft {
-  right: 10%;
-  bottom: 18%;
-  width: 520px;
-  height: 220px;
-  background: radial-gradient(circle, rgba(38, 38, 38, 0.14) 0%, transparent 72%);
-  filter: blur(30px);
 }
 
 .container {
@@ -675,3 +634,4 @@
     transform: translateY(-4px);
   }
 }
+

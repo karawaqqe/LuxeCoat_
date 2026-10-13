@@ -1,7 +1,7 @@
 .gallery {
   position: relative;
   overflow: hidden;
-  padding: 118px 20px 78px;
+  padding: 64px 20px 40px;
   background:
     radial-gradient(ellipse 125% 62% at 50% 56%, rgba(38, 38, 38, 0.03), transparent 72%),
     radial-gradient(ellipse 95% 40% at 18% 88%, rgba(30, 30, 30, 0.02), transparent 74%),
@@ -51,17 +51,6 @@
     );
   pointer-events: none;
   z-index: 0;
-}
-
-.gallery__line::after {
-  content: "";
-  position: absolute;
-  top: 26%;
-  left: -64px;
-  width: 128px;
-  height: 128px;
-  border: 1px solid rgba(165, 165, 165, 0.055);
-  transform: rotate(20deg);
 }
 
 .gallery.visible {
@@ -362,7 +351,7 @@
 
 @media (max-width: 768px) {
   .gallery {
-    padding: 72px 14px 58px;
+    padding: 48px 14px 32px;
   }
 
   .gallery__title {

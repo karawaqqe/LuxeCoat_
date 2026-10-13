@@ -11,9 +11,10 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: url("../../img/footer/flowersredu.jpg") center/cover no-repeat;
+  background: url("../../img/footer/jlklines.jpg") center / 100% 100% no-repeat;
   opacity: 0.12;
   filter: saturate(0.7);
+  pointer-events: none;
 }
 
 .footer__line {
@@ -116,6 +117,10 @@
 }
 
 @media (max-width: 768px) {
+  .footer::before {
+    background-size: auto 100%;
+  }
+
   .footer__columns {
     grid-template-columns: 1fr;
   }

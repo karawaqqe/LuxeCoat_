@@ -2,13 +2,7 @@
   position: relative;
   overflow: hidden;
   padding: 130px 20px 84px;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.024) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px),
-    radial-gradient(circle at 82% 16%, rgba(155, 155, 155, 0.11), transparent 24%),
-    linear-gradient(180deg, rgba(155, 155, 155, 0.06) 0%, transparent 18%),
-    #0a0a0c;
-  background-size: 54px 54px, 54px 54px, auto, auto;
+  background: #050505;
 }
 
 .gallery__line {
@@ -196,3 +190,4 @@
     max-height: 84%;
   }
 }
+

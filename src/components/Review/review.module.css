@@ -2,14 +2,7 @@
   position: relative;
   overflow: hidden;
   padding: 120px 20px 70px;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.026) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.026) 1px, transparent 1px),
-    radial-gradient(circle at 14% 12%, rgba(155, 155, 155, 0.11), transparent 24%),
-    radial-gradient(circle at 86% 70%, rgba(255, 255, 255, 0.035), transparent 22%),
-    linear-gradient(180deg, rgba(155, 155, 155, 0.06) 0%, transparent 18%),
-    #0b0b0d;
-  background-size: 52px 52px, 52px 52px, auto, auto, auto;
+  background: #050505;
   color: #ddd;
 }
 
@@ -296,3 +289,4 @@
     flex-direction: column;
   }
 }
+

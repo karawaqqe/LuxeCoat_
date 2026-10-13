@@ -2,17 +2,18 @@
 .social {
   position: relative;
   overflow: hidden;
-  padding: 80px 20px;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.024) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px),
-    radial-gradient(ellipse 115% 48% at 50% 0%, rgba(12, 12, 12, 0.34), rgba(11, 11, 12, 0) 84%),
-    radial-gradient(ellipse 90% 36% at 12% 82%, rgba(170, 170, 170, 0.022), transparent 78%),
-    #0b0b0c;
-  background-size: 54px 54px, 54px 54px, auto, auto, auto;
+  padding: 48px 20px;
+  background: #000;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .social::before {
@@ -20,29 +21,17 @@
   position: absolute;
   inset: 0 0 auto;
   height: 320px;
-  background:
-    radial-gradient(ellipse 74% 96% at 50% 0%, rgba(7, 7, 7, 0.34), transparent 72%),
-    linear-gradient(
-      180deg,
-      #050505 0%,
-      rgba(7, 7, 7, 0.8) 18%,
-      rgba(8, 8, 8, 0.52) 42%,
-      rgba(9, 9, 9, 0.24) 70%,
-      rgba(11, 11, 12, 0) 100%
-    );
+  background: linear-gradient(
+    180deg,
+    #050505 0%,
+    rgba(7, 7, 7, 0.52) 22%,
+    rgba(8, 8, 8, 0.32) 42%,
+    rgba(9, 9, 9, 0.14) 66%,
+    rgba(10, 10, 10, 0.05) 86%,
+    rgba(11, 11, 13, 0) 100%
+  );
   pointer-events: none;
-}
-
-.social::after {
-  content: "";
-  position: absolute;
-  right: 7%;
-  top: 18%;
-  width: 150px;
-  height: 150px;
-  border: 1px solid rgba(170, 170, 170, 0.045);
-  transform: rotate(-15deg);
-  pointer-events: none;
+  z-index: 0;
 }
 
 .social.active {
@@ -226,7 +215,7 @@
 
 @media (max-width: 520px) {
   .social {
-    padding: 60px 14px;
+    padding: 36px 14px;
   }
 
   .social__title {
@@ -260,5 +249,19 @@
 
   .social__arrow {
     font-size: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .social__item:hover,
+  .social__item:hover img,
+  .social__item:hover .social__arrow {
+    transform: none;
   }
 }

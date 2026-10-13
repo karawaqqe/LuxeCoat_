@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./social.module.css";
+import DotField from "./DotField";
 import instagram from "../../img/social/instagram.jpg";
 import tiktok from "../../img/social/tiktok.jpg";
 import facebook from "../../img/social/facebook.jpg";
@@ -36,6 +37,23 @@ export default function SocialSection() {
 
   return (
     <section className={`${styles.social} ${visible ? styles.active : ""}`}>
+      <div className={styles.background}>
+        <DotField
+          dotRadius={1.5}
+          dotSpacing={32}
+          maxDots={1200}
+          bulgeStrength={50}
+          glowRadius={50}
+          sparkle={false}
+          waveAmplitude={0}
+          cursorRadius={350}
+          cursorForce={0.12}
+          bulgeOnly
+          gradientFrom="#888100"
+          gradientTo="#000000"
+          glowColor="#050500"
+        />
+      </div>
       <div className={styles.container}>
         <div className={styles.head}>
           <span className={styles.kicker}>Media społecznościowe</span>

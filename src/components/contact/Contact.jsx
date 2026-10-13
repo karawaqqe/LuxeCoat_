@@ -108,8 +108,6 @@ export default function Contact() {
   return (
     <section className={style.contact}>
       <div className={style.bgLine}></div>
-      <div className={style.bgShape}></div>
-      <div className={style.bgShapeSoft}></div>
 
       <div className={style.container}>
         <div className={style.heroShell}>
